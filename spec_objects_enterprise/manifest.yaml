@@ -2,6 +2,12 @@ manifest_version: 1.0.0
 name: spec-objects-enterprise
 version: 0.1.0
 description: 'Filament Module: tier-2 enterprise-architecture ObjectTypes (capability, business_function, value_stream, decision, objective, principle, kpi)'
+nav:
+  category:
+    slug: enterprise-architecture
+    label: Enterprise Architecture
+    icon: Building2
+    order: 50
 archetypes: []
 grammars: []
 artifact_types: []
