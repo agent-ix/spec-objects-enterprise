@@ -23,21 +23,21 @@ object_types:
           from: frontmatter_field
           path:
           - id
-          required: false
+          required: true
         title: &id002
           from: frontmatter_field
           path:
           - title
-          required: false
+          required: true
         artifact_type: &id003
           from: frontmatter_field
           path:
           - artifact_type
-          required: false
+          required: true
         sub_capabilities:
           from: section_body
           after_heading: Sub-capabilities
-          required: false
+          required: true
 - name: business_function
   data_schema:
     type: object
@@ -50,7 +50,7 @@ object_types:
         description_body:
           from: section_body
           after_heading: Description
-          required: false
+          required: true
 - name: value_stream
   data_schema:
     type: object
@@ -63,7 +63,7 @@ object_types:
         stages:
           from: section_body
           after_heading: Stages
-          required: false
+          required: true
 - name: decision
   data_schema:
     type: object
@@ -76,7 +76,7 @@ object_types:
         decision_body:
           from: section_body
           after_heading: Decision
-          required: false
+          required: true
 - name: objective
   data_schema:
     type: object
@@ -90,12 +90,12 @@ object_types:
           from: frontmatter_field
           path:
           - metric
-          required: false
+          required: true
         target:
           from: frontmatter_field
           path:
           - target
-          required: false
+          required: true
         deadline:
           from: frontmatter_field
           path:
@@ -113,7 +113,7 @@ object_types:
         rationale:
           from: section_body
           after_heading: Rationale
-          required: false
+          required: true
 - name: kpi
   data_schema:
     type: object
@@ -127,12 +127,12 @@ object_types:
           from: frontmatter_field
           path:
           - metric
-          required: false
+          required: true
         target:
           from: frontmatter_field
           path:
           - target
-          required: false
+          required: true
         threshold:
           from: frontmatter_field
           path:
