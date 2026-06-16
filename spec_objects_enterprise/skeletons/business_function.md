@@ -1,12 +1,12 @@
 ---
 id: BF-001
 title: "Supply Chain Management"
-artifact_type: business_function
+type: business_function
 ---
 <!-- business_function authoring skeleton (spec-objects-enterprise). Fill every
      section with substantive content. Contract (manifest body_extraction
      asserts):
-     - Frontmatter MUST carry id, title and artifact_type: business_function.
+     - Frontmatter MUST carry id, title and type: business_function.
      - An H2 "Description" section is required; its body must describe what the
        function does, who performs it and which capabilities it supports (no
        TODO/TBD/placeholder text, no template variables). -->

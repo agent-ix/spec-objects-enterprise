@@ -12,8 +12,8 @@ tests cover:
 * every required ``section_body`` is filled substantively (non-empty,
   no placeholder tokens);
 * skeleton frontmatter carries every declared ``frontmatter_field`` (id,
-  title, artifact_type, plus objective/kpi measurable fields) and
-  ``artifact_type`` equals the object type name;
+  title, type, plus objective/kpi measurable fields) and
+  ``type`` equals the object type name;
 * the core locators are ``required: true`` in the manifest (the tightened
   contract cannot silently regress to trivially-passing);
 * roundtrip: each skeleton passes the quire wheel's ``validate_document`` and
@@ -149,10 +149,10 @@ def test_manifest_declares_all_object_types() -> None:
 
 @pytest.mark.parametrize("name", _OBJECT_TYPE_NAMES, ids=lambda n: n)
 def test_core_frontmatter_locators_required(name: str) -> None:
-    """id, title and artifact_type are required for every object type."""
+    """id, title and type are required for every object type."""
     ot = _object_type(name)
     match = _match(ot)
-    for field in ("id", "title", "artifact_type"):
+    for field in ("id", "title", "type"):
         loc = match[field]
         assert loc["from"] == "frontmatter_field", f"{name}.{field} wrong locator"
         assert loc.get("required") is True, f"{name}.{field} is not required"
@@ -228,7 +228,7 @@ def test_required_section_bodies_substantive(name: str) -> None:
 @pytest.mark.parametrize("name", _OBJECT_TYPE_NAMES, ids=lambda n: n)
 def test_frontmatter_carries_declared_fields(name: str) -> None:
     """The skeleton frontmatter carries every declared ``frontmatter_field``
-    (required or optional) with a real value, and artifact_type == type name."""
+    (required or optional) with a real value, and type == type name."""
     ot = _object_type(name)
     fm = _skeleton_frontmatter(_skeleton_text(name))
     for key in _frontmatter_locators(ot):
@@ -240,9 +240,8 @@ def test_frontmatter_carries_declared_fields(name: str) -> None:
             assert (
                 token.lower() not in lowered
             ), f"{name}: frontmatter {key!r} carries placeholder token {token!r}"
-    assert fm["artifact_type"] == name, (
-        f"{name}: frontmatter artifact_type is {fm['artifact_type']!r}, "
-        f"expected {name!r}"
+    assert fm["type"] == name, (
+        f"{name}: frontmatter type is {fm['type']!r}, " f"expected {name!r}"
     )
 
 

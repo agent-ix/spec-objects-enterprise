@@ -1,7 +1,7 @@
 ---
 id: KPI-001
 title: "On-time delivery rate"
-artifact_type: kpi
+type: kpi
 metric: "Orders delivered within the promised window (% of delivered orders)"
 target: "97% or higher, measured weekly"
 threshold: "Alert below 95% for two consecutive weeks"
@@ -9,7 +9,7 @@ threshold: "Alert below 95% for two consecutive weeks"
 <!-- kpi authoring skeleton (spec-objects-enterprise). Fill the frontmatter and
      body with substantive content. Contract (manifest body_extraction
      asserts):
-     - Frontmatter MUST carry id, title, artifact_type: kpi, plus the
+     - Frontmatter MUST carry id, title, type: kpi, plus the
        measurable fields `metric` and `target`; `threshold` is optional but
        recommended for alerting.
      - The body explains how the KPI is computed, who owns it and what happens

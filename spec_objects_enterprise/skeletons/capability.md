@@ -1,11 +1,11 @@
 ---
 id: CAP-001
 title: "Order Fulfillment"
-artifact_type: capability
+type: capability
 ---
 <!-- capability authoring skeleton (spec-objects-enterprise). Fill every section
      with substantive content. Contract (manifest body_extraction asserts):
-     - Frontmatter MUST carry id, title and artifact_type: capability.
+     - Frontmatter MUST carry id, title and type: capability.
      - An H2 "Sub-capabilities" section is required; its body must enumerate the
        child capabilities with substantive descriptions (no TODO/TBD/placeholder
        text, no template variables). -->

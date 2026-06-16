@@ -1,7 +1,7 @@
 ---
 id: OBJ-001
 title: "Cut median order-to-ship time in half"
-artifact_type: objective
+type: objective
 metric: "Median order-to-ship time across all fulfillment centers (hours)"
 target: "12 hours or less"
 deadline: "2026-12-31"
@@ -9,7 +9,7 @@ deadline: "2026-12-31"
 <!-- objective authoring skeleton (spec-objects-enterprise). Fill the
      frontmatter and body with substantive content. Contract (manifest
      body_extraction asserts):
-     - Frontmatter MUST carry id, title, artifact_type: objective, plus the
+     - Frontmatter MUST carry id, title, type: objective, plus the
        measurable fields `metric` and `target`; `deadline` is optional but
        strongly recommended.
      - The body explains why the objective matters and how it will be pursued

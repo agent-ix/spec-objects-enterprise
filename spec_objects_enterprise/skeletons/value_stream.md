@@ -1,12 +1,12 @@
 ---
 id: VS-001
 title: "Order to Delivery"
-artifact_type: value_stream
+type: value_stream
 ---
 <!-- value_stream authoring skeleton (spec-objects-enterprise). Fill every
      section with substantive content. Contract (manifest body_extraction
      asserts):
-     - Frontmatter MUST carry id, title and artifact_type: value_stream.
+     - Frontmatter MUST carry id, title and type: value_stream.
      - An H2 "Stages" section is required; its body must list the stages in
        order with the value each stage adds (no TODO/TBD/placeholder text, no
        template variables). -->

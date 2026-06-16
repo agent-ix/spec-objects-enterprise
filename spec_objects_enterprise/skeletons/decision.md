@@ -1,11 +1,11 @@
 ---
 id: DEC-001
 title: "Adopt event-driven order orchestration"
-artifact_type: decision
+type: decision
 ---
 <!-- decision authoring skeleton (spec-objects-enterprise). Fill every section
      with substantive content. Contract (manifest body_extraction asserts):
-     - Frontmatter MUST carry id, title and artifact_type: decision.
+     - Frontmatter MUST carry id, title and type: decision.
      - An H2 "Decision" section is required; its body must state the decision
        taken, its scope and the alternatives it supersedes (no TODO/TBD/
        placeholder text, no template variables). -->

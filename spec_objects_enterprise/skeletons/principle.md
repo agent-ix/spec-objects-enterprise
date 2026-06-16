@@ -1,11 +1,11 @@
 ---
 id: PRIN-001
 title: "Promise only what the network can deliver"
-artifact_type: principle
+type: principle
 ---
 <!-- principle authoring skeleton (spec-objects-enterprise). Fill every section
      with substantive content. Contract (manifest body_extraction asserts):
-     - Frontmatter MUST carry id, title and artifact_type: principle.
+     - Frontmatter MUST carry id, title and type: principle.
      - An H2 "Rationale" section is required; its body must justify the
        principle and note its implications (no TODO/TBD/placeholder text, no
        template variables). -->
