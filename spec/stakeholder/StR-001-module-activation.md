@@ -5,21 +5,31 @@ type: StR
 ---
 # [StR-001] Tier-2 enterprise architecture
 
-## Stakeholder
+## Stakeholder Need
 
-Filament platform / spec authors / agent CLI generators.
+The Filament platform, spec authors, and agent CLI generators require that
+enterprise architecture specifications shall yield extractable graph entities for
+capabilities, business functions, value streams, decisions, objectives, principles,
+and KPIs, so that tier-2 enterprise architecture can be authored and consumed as
+first-class graph objects.
 
-## Need
+## Rationale
 
-Enterprise architecture specs need extractable graph entities for capabilities, business functions, value streams, decisions, objectives, principles, and KPIs.
+Enterprise architecture content today is unstructured prose that cannot be linked,
+queried, or generated as a graph. Spec authors and agent generators need these
+concepts modelled as activatable archetypes and object-types so that a Module
+activation registers them in filament-core and downstream tooling can treat them as
+extractable entities rather than free text.
 
-## Acceptance Criteria
+## Validation Criteria
 
-| ID | Criteria |
-|----|----------|
-| StR-001-AC-1 | A Module activation against filament-core registers the contents this module declares. |
-| StR-001-AC-2 | Agent CLI generators (minijinja-cli) can produce valid artifacts using the templates and schemas this module ships. |
+This need is considered satisfied when:
+
+- A Module activation against filament-core registers the contents this module
+  declares.
+- Agent CLI generators (minijinja-cli) can produce valid artifacts using the
+  templates and schemas this module ships.
 
 ## Dependencies
 
-- **Upstream**: filament-core-service FR-035 (Module Manifest Schema)
+- **Upstream**: filament-core-service FR-035 (Module Manifest Schema).
