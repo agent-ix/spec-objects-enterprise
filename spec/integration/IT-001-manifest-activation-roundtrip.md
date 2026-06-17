@@ -62,4 +62,4 @@ per-step success criterion holds.
 
 ## Traceability
 
-This integration test verifies FR-001 (manifest activation against filament-core).
+This integration test verifies [FR-001](../functional/FR-001-module-manifest-activates.md) (manifest activation against filament-core).
