@@ -2,7 +2,7 @@
 
 > Filament Module: tier-2 enterprise-architecture ObjectTypes (capability, business_function, value_stream, decision, objective, principle, kpi)
 
-An Agent-IX Filament module loaded by [`quire-cli`](https://github.com/agent-ix/quire-cli) and [`ix-spec`](https://github.com/agent-ix/ix-spec).
+An Agent-IX Filament module loaded by [`quire-cli`](https://github.com/agent-ix/quire-cli) and [`quoin`](https://github.com/agent-ix/quoin).
 
 ## Installing quire-cli
 
@@ -33,16 +33,16 @@ See https://github.com/agent-ix/quire-cli#install for details.
 
 ## How this module is used
 
-### With ix-spec (recommended)
+### With quoin (recommended)
 
 ```bash
-ix-spec plugin install path:../spec-objects-enterprise
-ix-spec catalog list
-ix-spec write . --types capability,value_stream
-ix-spec review
+quoin plugin install path:../spec-objects-enterprise
+quoin catalog list
+quoin write . --types capability,value_stream
+quoin review
 ```
 
-See https://github.com/agent-ix/ix-spec.
+See https://github.com/agent-ix/quoin.
 
 ### With quire-cli directly
 
