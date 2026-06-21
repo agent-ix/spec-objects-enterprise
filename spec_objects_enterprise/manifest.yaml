@@ -14,6 +14,12 @@ artifact_types: []
 lint_rules: []
 object_types:
 - name: capability
+  roles: [business-intent, measurable]
+  allowed_links:
+    decomposes: [capability]
+    realizes: [business_function]
+    depends_on: [capability]
+    references: [principle]
   data_schema:
     type: object
   body_extraction:
@@ -39,6 +45,11 @@ object_types:
           after_heading: Sub-capabilities
           required: true
 - name: business_function
+  roles: [business-intent]
+  allowed_links:
+    supports: [value_stream]
+    realizes: [capability]
+    references: [business_function]
   data_schema:
     type: object
   body_extraction:
@@ -52,6 +63,9 @@ object_types:
           after_heading: Description
           required: true
 - name: value_stream
+  roles: [business-intent, measurable]
+  allowed_links:
+    contains: [business_function]
   data_schema:
     type: object
   body_extraction:
@@ -65,6 +79,10 @@ object_types:
           after_heading: Stages
           required: true
 - name: decision
+  allowed_links:
+    references: [objective, principle, capability]
+    supersedes: [decision]
+    constrains: [capability]
   data_schema:
     type: object
   body_extraction:
@@ -78,6 +96,10 @@ object_types:
           after_heading: Decision
           required: true
 - name: objective
+  roles: [measurable]
+  allowed_links:
+    supports: [objective]
+    references: [kpi, capability]
   data_schema:
     type: object
   body_extraction:
@@ -102,6 +124,8 @@ object_types:
           - deadline
           required: false
 - name: principle
+  allowed_links:
+    governs: ["*"]
   data_schema:
     type: object
   body_extraction:
@@ -115,6 +139,8 @@ object_types:
           after_heading: Rationale
           required: true
 - name: kpi
+  allowed_links:
+    measures: [measurable]
   data_schema:
     type: object
   body_extraction:
