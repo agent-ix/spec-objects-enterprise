@@ -23,12 +23,11 @@ extractable entities rather than free text.
 
 ## Validation Criteria
 
-This need is considered satisfied when:
 
-- A Module activation against filament-core registers the contents this module
-  declares.
-- Agent CLI generators (minijinja-cli) can produce valid artifacts using the
-  templates and schemas this module ships.
+| ID | Criteria | Validation |
+|----|----------|------------|
+| StR-001-VC-1 | A Module activation against filament-core registers the contents this module declares. | Inspection |
+| StR-001-VC-2 | Agent CLI generators (minijinja-cli) can produce valid artifacts using the templates and schemas this module ships. | Demonstration |
 
 ## Dependencies
 
