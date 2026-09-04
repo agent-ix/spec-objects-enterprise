@@ -1,0 +1,3 @@
+*.json eol=lf
+*.tsp eol=lf
+*.md eol=lf

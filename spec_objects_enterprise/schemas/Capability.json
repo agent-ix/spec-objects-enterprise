@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/Capability.json",
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "$ref": "https://schemas.agent-ix.org/semantic-core/0.1.0/FieldDecl.json"
+      },
+      "minItems": 1,
+      "contains": {
+        "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/IdentityField.json"
+      }
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "$ref": "https://schemas.agent-ix.org/semantic-core/0.1.0/RelationDecl.json"
+      }
+    },
+    "clauses": {
+      "type": "array",
+      "items": {
+        "$ref": "https://schemas.agent-ix.org/semantic-core/0.1.0/ClauseRef.json"
+      }
+    },
+    "scope": {
+      "type": "string"
+    },
+    "outcomes": {
+      "type": "array",
+      "items": {
+        "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/OutcomeDecl.json"
+      }
+    },
+    "owner": {
+      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/OwnershipDecl.json"
+    },
+    "lifecycle": {
+      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/LifecycleDecl.json"
+    },
+    "provenance": {
+      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/ProvenanceDecl.json"
+    }
+  },
+  "required": [
+    "fields"
+  ],
+  "unevaluatedProperties": {
+    "not": {}
+  },
+  "description": "A capability: an ability the organization holds. It is identified in the\narchitecture graph, so it carries at least one identity field; `operations`\nis forbidden by the seal, because a capability exposes no interface — the\nbusiness functions that realize it do.",
+  "allOf": [
+    {
+      "properties": {
+        "relations": {
+          "items": {
+            "properties": {
+              "verb": {
+                "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/CapabilityVerb.json"
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

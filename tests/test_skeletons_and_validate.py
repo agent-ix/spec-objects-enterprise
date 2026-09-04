@@ -176,6 +176,7 @@ def test_skeleton_exists(name: str) -> None:
     assert (SKELETONS_DIR / f"{name}.md").exists(), f"missing skeleton {name}.md"
 
 
+@pytest.mark.trace("TC-055", "FR-005-AC-6")
 @pytest.mark.parametrize("name", _OBJECT_TYPE_NAMES, ids=lambda n: n)
 def test_asserted_headings_present_at_level(name: str) -> None:
     """Every ``section_body`` heading the manifest asserts exists in the
@@ -189,23 +190,31 @@ def test_asserted_headings_present_at_level(name: str) -> None:
         )
 
 
+@pytest.mark.trace("TC-055", "FR-005-AC-6")
 @pytest.mark.parametrize("name", _OBJECT_TYPE_NAMES, ids=lambda n: n)
 def test_reverse_parity_no_skeleton_drift(name: str) -> None:
     """Reverse direction: every skeleton H2 corresponds to a declared
     ``section_body`` locator, so the skeleton cannot drift ahead of the
-    manifest contract. Types with no section locators carry no H2s."""
+    manifest contract.
+
+    H3 headings are excluded by design, not by convenience: the quoin FR-072
+    Markdown forms put one ``### <clauseId>`` per clause under ``## Invariants``
+    and one ``### <name>`` per operation under ``## Operations``, and those are
+    the declaration's own contents rather than sections a locator could name.
+    FR-005-AC-6 is a statement about the H2 set.
+    """
     ot = _object_type(name)
-    declared = {(s["level"], s["heading"]) for s in _section_body_locators(ot)}
-    declared_levels = {lvl for lvl, _ in declared} or {2}
+    declared = {s["heading"] for s in _section_body_locators(ot) if s["level"] == 2}
     for lvl, text in _skeleton_headings(_skeleton_text(name)):
-        if lvl == 1:
-            continue  # the H1 carries the variable [id] title, never asserted
-        assert lvl in declared_levels and (lvl, text) in declared, (
-            f"{name}: skeleton heading {text!r} (H{lvl}) is not declared by the "
+        if lvl != 2:
+            continue
+        assert text in declared, (
+            f"{name}: skeleton heading {text!r} (H2) is not declared by the "
             f"manifest (skeleton drifted ahead of the contract)"
         )
 
 
+@pytest.mark.trace("TC-056", "FR-005-AC-7")
 @pytest.mark.parametrize("name", _OBJECT_TYPE_NAMES, ids=lambda n: n)
 def test_required_section_bodies_substantive(name: str) -> None:
     """Every required ``section_body`` is filled with substantive,
@@ -225,6 +234,7 @@ def test_required_section_bodies_substantive(name: str) -> None:
             )
 
 
+@pytest.mark.trace("TC-059", "FR-005-AC-8")
 @pytest.mark.parametrize("name", _OBJECT_TYPE_NAMES, ids=lambda n: n)
 def test_frontmatter_carries_declared_fields(name: str) -> None:
     """The skeleton frontmatter carries every declared ``frontmatter_field``
@@ -249,36 +259,54 @@ def test_frontmatter_carries_declared_fields(name: str) -> None:
 
 
 def _quire_doc_validator():
-    """Return the quire wheel iff it exposes the markdown-default validator."""
-    try:
-        import quire
-    except ImportError:
-        return None
-    if not hasattr(quire, "validate_document"):
-        return None
-    return quire
+    """Return the quire wheel, failing (never skipping) when it is absent.
+
+    FR-005: a skipped row is not coverage. The engine is provisioned by
+    `make dev-quire`; `agent-ix/quire-rs#392` tracks publishing it to an index
+    this repository may commit a dependency against.
+    """
+    from tests.conftest import require_quire
+
+    return require_quire()
 
 
+@pytest.mark.trace("TC-050", "FR-005-AC-1")
 @pytest.mark.parametrize("name", _OBJECT_TYPE_NAMES, ids=lambda n: n)
 def test_roundtrip_skeleton_validates(name: str) -> None:
     """Each filled skeleton passes ``validate_document`` against this module.
 
-    Skips when the installed quire wheel predates the markdown-default
-    validator; install a quire >=0.3.6 wheel to exercise it."""
+    The suite fails rather than skips when the engine is absent (FR-005)."""
     quire = _quire_doc_validator()
-    if quire is None:
-        pytest.skip("quire wheel lacks validate_document")
     res = quire.validate_document(name, str(PKG_ROOT), _skeleton_text(name))
     assert res["is_valid"], res["errors"]
 
 
 def test_roundtrip_mutation_fails() -> None:
-    """Deleting the required Sub-capabilities section fails validation."""
+    """Renaming the required Sub-capabilities heading fails validation."""
     quire = _quire_doc_validator()
-    if quire is None:
-        pytest.skip("quire wheel lacks validate_document")
     base = _skeleton_text("capability")
     mutated = base.replace("## Sub-capabilities", "## Something Else", 1)
     assert mutated != base, "mutation did not apply"
     res = quire.validate_document("capability", str(PKG_ROOT), mutated)
     assert not res["is_valid"], "mutated capability skeleton still validates"
+
+
+@pytest.mark.trace("TC-055", "FR-005-AC-6")
+def test_no_skeleton_comment_carries_a_literal_heading() -> None:
+    """Guard against a real engine trap, found while writing these skeletons.
+
+    Quire's heading scan does not strip HTML comments, so an instructional
+    comment containing a literal ``## Sub-capabilities`` line satisfies the very
+    ``required: true`` locator it documents — renaming the real heading then
+    still validates, and the contract silently stops being checked. Filed as
+    agent-ix/quire-rs#399. Until it lands, no skeleton comment may carry a
+    heading-shaped line.
+    """
+    for path in sorted(SKELETONS_DIR.glob("*.md")):
+        for comment in re.findall(r"<!--.*?-->", path.read_text(), re.DOTALL):
+            for line in comment.splitlines():
+                shaped = re.search(r"(^|\s)#{1,6}\s+\S", line)
+                assert not shaped, (
+                    f"{path.name}: comment carries a heading-shaped line: "
+                    f"{line.strip()!r}"
+                )

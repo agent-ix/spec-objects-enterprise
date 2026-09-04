@@ -28,6 +28,7 @@ extractable entities rather than free text.
 |----|----------|------------|
 | StR-001-VC-1 | A Module activation against filament-core registers the contents this module declares. | Inspection |
 | StR-001-VC-2 | Agent CLI generators (minijinja-cli) can produce valid artifacts using the templates and schemas this module ships. | Demonstration |
+| StR-001-VC-3 | Every enterprise object type carries one typed structural contract that the downstream frontends (`agent-ix/quire-contract-ir#52`, `agent-ix/filament-core-data#36`) can consume read-only, so a capability and a KPI are distinguishable to a consumer without reading the prose, and a KPI definition is distinguishable from a reading of it. | Demonstration |
 
 ## Dependencies
 

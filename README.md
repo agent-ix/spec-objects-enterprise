@@ -44,6 +44,34 @@ quire validate spec/**/*.md --module node_modules/@agent-ix/spec-objects-enterpr
 | Principle | `principle` | A guiding rule (e.g. promise only what the network can deliver) justified in an H2 "Rationale" with its implications. |
 | KPI | `kpi` | A key performance indicator carrying frontmatter `metric` and `target` (with optional `threshold`), explaining how it is computed, who owns it and what happens on a breach. |
 
+## Semantic contract
+
+Every object type ships a real JSON Schema 2020-12 declaration record under
+`spec_objects_enterprise/schemas/`, emitted from `typespec/main.tsp` against
+`@agent-ix/semantic-core` 0.1.0 and referenced from `manifest.yaml` by path and
+SHA-256 digest. The skeletons author their declarations in the typed
+`## Properties` table (or the equivalent ```sysml``` fence), with clauses as
+```ocl``` fences under `## Invariants`.
+
+One rule is worth naming here, because it is the reason the KPI type has a
+schema at all: **a KPI declaration is a measure definition, never a reading of
+one.** `Kpi.json` requires at least one field carrying a unit (a dimensionless
+measure uses the UCUM unity symbol `1`) and admits no identity field and no
+`Timestamp` field — the identity and the instant an observation would carry. An
+objective is its mirror: time-bound, and referencing a KPI definition through
+its `targets` rather than declaring a measure of its own.
+
+```bash
+make schemas        # re-emit schemas/ and the manifest digests from typespec/
+make schemas-check  # fail on any drift (also run by `make lint`)
+make dev-quire      # install the Quire wheel the semantic tests need
+```
+
+`make dev-quire` exists because the Quire release carrying `extract_semantic`
+is on no index this repository may commit a dependency against
+(`agent-ix/quire-rs#392`). The semantic tests **fail** rather than skip when it
+is absent: a skipped row is not coverage.
+
 ## How this module is used
 
 ### With quoin (recommended)

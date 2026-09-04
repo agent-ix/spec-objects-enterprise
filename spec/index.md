@@ -10,5 +10,9 @@ okf_version: "0.1"
 
 * [Functional](./functional/index.md) - Functional artifacts.
 * [Integration](./integration/index.md) - Integration artifacts.
+* [Non-Functional](./non-functional/index.md) - Non-functional artifacts.
 * [Stakeholder](./stakeholder/index.md) - Stakeholder artifacts.
+* [Usecase](./usecase/index.md) - Use-case artifacts.
 * [Spec](./spec.md)
+* [Test Matrix](./tests.md)
+* [Reviews](./reviews/4-semantic-module-contract/base.md) - SpecReviews for issue #4 (spec review round); the code review and gap analysis are at `reviews/` in the repository root.

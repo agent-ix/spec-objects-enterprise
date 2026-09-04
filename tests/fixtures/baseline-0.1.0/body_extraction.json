@@ -1,0 +1,261 @@
+{
+  "object_types": {
+    "business_function": {
+      "yield_pattern": {
+        "match": {
+          "description_body": {
+            "after_heading": "Description",
+            "from": "section_body",
+            "required": true
+          },
+          "id": {
+            "from": "frontmatter_field",
+            "path": [
+              "id"
+            ],
+            "required": true
+          },
+          "title": {
+            "from": "frontmatter_field",
+            "path": [
+              "title"
+            ],
+            "required": true
+          },
+          "type": {
+            "from": "frontmatter_field",
+            "path": [
+              "type"
+            ],
+            "required": true
+          }
+        }
+      }
+    },
+    "capability": {
+      "yield_pattern": {
+        "match": {
+          "id": {
+            "from": "frontmatter_field",
+            "path": [
+              "id"
+            ],
+            "required": true
+          },
+          "sub_capabilities": {
+            "after_heading": "Sub-capabilities",
+            "from": "section_body",
+            "required": true
+          },
+          "title": {
+            "from": "frontmatter_field",
+            "path": [
+              "title"
+            ],
+            "required": true
+          },
+          "type": {
+            "from": "frontmatter_field",
+            "path": [
+              "type"
+            ],
+            "required": true
+          }
+        }
+      }
+    },
+    "decision": {
+      "yield_pattern": {
+        "match": {
+          "decision_body": {
+            "after_heading": "Decision",
+            "from": "section_body",
+            "required": true
+          },
+          "id": {
+            "from": "frontmatter_field",
+            "path": [
+              "id"
+            ],
+            "required": true
+          },
+          "title": {
+            "from": "frontmatter_field",
+            "path": [
+              "title"
+            ],
+            "required": true
+          },
+          "type": {
+            "from": "frontmatter_field",
+            "path": [
+              "type"
+            ],
+            "required": true
+          }
+        }
+      }
+    },
+    "kpi": {
+      "yield_pattern": {
+        "match": {
+          "id": {
+            "from": "frontmatter_field",
+            "path": [
+              "id"
+            ],
+            "required": true
+          },
+          "metric": {
+            "from": "frontmatter_field",
+            "path": [
+              "metric"
+            ],
+            "required": true
+          },
+          "target": {
+            "from": "frontmatter_field",
+            "path": [
+              "target"
+            ],
+            "required": true
+          },
+          "threshold": {
+            "from": "frontmatter_field",
+            "path": [
+              "threshold"
+            ],
+            "required": false
+          },
+          "title": {
+            "from": "frontmatter_field",
+            "path": [
+              "title"
+            ],
+            "required": true
+          },
+          "type": {
+            "from": "frontmatter_field",
+            "path": [
+              "type"
+            ],
+            "required": true
+          }
+        }
+      }
+    },
+    "objective": {
+      "yield_pattern": {
+        "match": {
+          "deadline": {
+            "from": "frontmatter_field",
+            "path": [
+              "deadline"
+            ],
+            "required": false
+          },
+          "id": {
+            "from": "frontmatter_field",
+            "path": [
+              "id"
+            ],
+            "required": true
+          },
+          "metric": {
+            "from": "frontmatter_field",
+            "path": [
+              "metric"
+            ],
+            "required": true
+          },
+          "target": {
+            "from": "frontmatter_field",
+            "path": [
+              "target"
+            ],
+            "required": true
+          },
+          "title": {
+            "from": "frontmatter_field",
+            "path": [
+              "title"
+            ],
+            "required": true
+          },
+          "type": {
+            "from": "frontmatter_field",
+            "path": [
+              "type"
+            ],
+            "required": true
+          }
+        }
+      }
+    },
+    "principle": {
+      "yield_pattern": {
+        "match": {
+          "id": {
+            "from": "frontmatter_field",
+            "path": [
+              "id"
+            ],
+            "required": true
+          },
+          "rationale": {
+            "after_heading": "Rationale",
+            "from": "section_body",
+            "required": true
+          },
+          "title": {
+            "from": "frontmatter_field",
+            "path": [
+              "title"
+            ],
+            "required": true
+          },
+          "type": {
+            "from": "frontmatter_field",
+            "path": [
+              "type"
+            ],
+            "required": true
+          }
+        }
+      }
+    },
+    "value_stream": {
+      "yield_pattern": {
+        "match": {
+          "id": {
+            "from": "frontmatter_field",
+            "path": [
+              "id"
+            ],
+            "required": true
+          },
+          "stages": {
+            "after_heading": "Stages",
+            "from": "section_body",
+            "required": true
+          },
+          "title": {
+            "from": "frontmatter_field",
+            "path": [
+              "title"
+            ],
+            "required": true
+          },
+          "type": {
+            "from": "frontmatter_field",
+            "path": [
+              "type"
+            ],
+            "required": true
+          }
+        }
+      }
+    }
+  },
+  "version": "0.1.0"
+}
