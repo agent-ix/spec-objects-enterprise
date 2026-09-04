@@ -1,0 +1,67 @@
+{
+  "compiler": {
+    "name": "@typespec/compiler",
+    "version": "1.15.0"
+  },
+  "emitter": {
+    "name": "@typespec/json-schema",
+    "version": "1.15.0"
+  },
+  "semanticCore": {
+    "name": "@agent-ix/semantic-core",
+    "version": "0.1.0"
+  },
+  "base": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/",
+  "normalization": {
+    "name": "absolute-id-and-ref",
+    "version": "1.0.0",
+    "issue": "https://github.com/agent-ix/spec-objects-enterprise/issues/4",
+    "applied": true,
+    "rewrittenFiles": [
+      "BusinessFunction.json",
+      "Capability.json",
+      "Decision.json",
+      "Kpi.json",
+      "Objective.json",
+      "Principle.json",
+      "ValueStream.json"
+    ],
+    "note": "rewrote relative $id/$ref to the module base or semantic-core 0.1.0"
+  },
+  "files": [
+    "AggregationKind.json",
+    "AlternativeDecl.json",
+    "BusinessFunction.json",
+    "BusinessFunctionVerb.json",
+    "Capability.json",
+    "CapabilityVerb.json",
+    "Comparator.json",
+    "Decision.json",
+    "DecisionVerb.json",
+    "Direction.json",
+    "IdentityField.json",
+    "Kpi.json",
+    "KpiVerb.json",
+    "LifecycleDecl.json",
+    "LifecycleState.json",
+    "MeasureDecl.json",
+    "MeasuredField.json",
+    "MeasuredTypeRef.json",
+    "Objective.json",
+    "ObjectiveVerb.json",
+    "OutcomeDecl.json",
+    "OwnershipDecl.json",
+    "Principle.json",
+    "PrincipleVerb.json",
+    "ProvenanceDecl.json",
+    "StageDecl.json",
+    "TargetDecl.json",
+    "TemporalField.json",
+    "TemporalTypeRef.json",
+    "ThresholdDecl.json",
+    "ThresholdLevel.json",
+    "ValueStream.json",
+    "ValueStreamVerb.json"
+  ],
+  "digest": "sha256:746ddefdc16fe36c937cc7388220c7534527040355b0e20f8ba9790cb953c3d9"
+}

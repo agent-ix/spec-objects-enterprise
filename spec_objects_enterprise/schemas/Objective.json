@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/Objective.json",
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "$ref": "https://schemas.agent-ix.org/semantic-core/0.1.0/FieldDecl.json"
+      },
+      "minItems": 1,
+      "contains": {
+        "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/IdentityField.json"
+      }
+    },
+    "clauses": {
+      "type": "array",
+      "items": {
+        "$ref": "https://schemas.agent-ix.org/semantic-core/0.1.0/ClauseRef.json"
+      },
+      "minItems": 1
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "$ref": "https://schemas.agent-ix.org/semantic-core/0.1.0/RelationDecl.json"
+      }
+    },
+    "targets": {
+      "type": "array",
+      "items": {
+        "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/TargetDecl.json"
+      }
+    },
+    "owner": {
+      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/OwnershipDecl.json"
+    },
+    "lifecycle": {
+      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/LifecycleDecl.json"
+    },
+    "provenance": {
+      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/ProvenanceDecl.json"
+    }
+  },
+  "required": [
+    "fields",
+    "clauses"
+  ],
+  "unevaluatedProperties": {
+    "not": {}
+  },
+  "description": "An objective: a time-bound commitment measured against a KPI definition.\n\nIts `fields` carry an identity and a horizon, expressed as a second\n`contains` predicate through `allOf` because JSON Schema admits one\n`contains` per array. `measure` is absent by intent: an objective references\na measure definition through `targets[].measure` and never declares one.",
+  "allOf": [
+    {
+      "properties": {
+        "fields": {
+          "contains": {
+            "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/TemporalField.json"
+          },
+          "minContains": 1
+        }
+      }
+    },
+    {
+      "properties": {
+        "relations": {
+          "items": {
+            "properties": {
+              "verb": {
+                "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/ObjectiveVerb.json"
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

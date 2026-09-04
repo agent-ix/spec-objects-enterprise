@@ -20,7 +20,8 @@
     "LICENSE"
   ],
   "scripts": {
-    "prepack": "node scripts/stage-npm.mjs"
+    "prepack": "node scripts/stage-npm.mjs",
+    "postpack": "node scripts/stage-npm.mjs --clean"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",

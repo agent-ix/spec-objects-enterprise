@@ -1,7 +1,24 @@
 manifest_version: 1.0.0
 name: spec-objects-enterprise
-version: 0.1.0
+version: 0.2.0
 description: 'Filament Module: tier-2 enterprise-architecture ObjectTypes (capability, business_function, value_stream, decision, objective, principle, kpi)'
+semantic:
+  contract_version: 1.0.0
+  semantic_core: 0.1.0
+  package: agent-ix/spec-objects-enterprise
+  exports:
+  - capability
+  - business_function
+  - value_stream
+  - decision
+  - objective
+  - principle
+  - kpi
+  imports: {}
+  targets: [json-schema, markdown]
+  mappings: [typed-table, sysml-fence, ocl-clause]
+  compatibility_posture: additive
+  legacy_forms: warning
 nav:
   category:
     slug: enterprise-architecture
@@ -21,7 +38,8 @@ object_types:
     depends_on: [capability]
     references: [principle]
   data_schema:
-    type: object
+    schema: schemas/Capability.json
+    digest: sha256:c30e38cf23cc1dc0023b5b30c4bb7b55a345f0d33e118bd2ac58d34063460f75
   body_extraction:
     yield_pattern:
       match:
@@ -44,6 +62,14 @@ object_types:
           from: section_body
           after_heading: Sub-capabilities
           required: true
+        properties:
+          from: section_body
+          after_heading: Properties
+          required: false
+        invariants:
+          from: section_body
+          after_heading: Invariants
+          required: false
 - name: business_function
   roles: [business-intent]
   allowed_links:
@@ -51,7 +77,8 @@ object_types:
     realizes: [capability]
     references: [business_function]
   data_schema:
-    type: object
+    schema: schemas/BusinessFunction.json
+    digest: sha256:4d9f90ba1f9f83f3cd5ba30852102eb108c95fb6ee63cff1088b1d35030d8339
   body_extraction:
     yield_pattern:
       match:
@@ -62,12 +89,25 @@ object_types:
           from: section_body
           after_heading: Description
           required: true
+        properties:
+          from: section_body
+          after_heading: Properties
+          required: false
+        invariants:
+          from: section_body
+          after_heading: Invariants
+          required: false
+        operations:
+          from: section_body
+          after_heading: Operations
+          required: false
 - name: value_stream
   roles: [business-intent, measurable]
   allowed_links:
     contains: [business_function]
   data_schema:
-    type: object
+    schema: schemas/ValueStream.json
+    digest: sha256:f57a8ba745a504dcd8ea67a6ccbe047f297f767977895acaf31bb7d5b3dd330a
   body_extraction:
     yield_pattern:
       match:
@@ -78,13 +118,22 @@ object_types:
           from: section_body
           after_heading: Stages
           required: true
+        properties:
+          from: section_body
+          after_heading: Properties
+          required: false
+        invariants:
+          from: section_body
+          after_heading: Invariants
+          required: false
 - name: decision
   allowed_links:
     references: [objective, principle, capability]
     supersedes: [decision]
     constrains: [capability]
   data_schema:
-    type: object
+    schema: schemas/Decision.json
+    digest: sha256:4e03b9d4e07c06d1f3202ab365b98d6992732426ff4894bd84619af9cf1dfa57
   body_extraction:
     yield_pattern:
       match:
@@ -95,13 +144,22 @@ object_types:
           from: section_body
           after_heading: Decision
           required: true
+        properties:
+          from: section_body
+          after_heading: Properties
+          required: false
+        invariants:
+          from: section_body
+          after_heading: Invariants
+          required: false
 - name: objective
   roles: [measurable]
   allowed_links:
     supports: [objective]
     references: [kpi, capability]
   data_schema:
-    type: object
+    schema: schemas/Objective.json
+    digest: sha256:7113427a1fcb1e20a7ef61e45bb86079db574360b8a45a42aa2bc2e7f74f3d6e
   body_extraction:
     yield_pattern:
       match:
@@ -123,11 +181,20 @@ object_types:
           path:
           - deadline
           required: false
+        properties:
+          from: section_body
+          after_heading: Properties
+          required: false
+        invariants:
+          from: section_body
+          after_heading: Invariants
+          required: false
 - name: principle
   allowed_links:
     governs: ["*"]
   data_schema:
-    type: object
+    schema: schemas/Principle.json
+    digest: sha256:ffe8f36f8f88a5952f5471ca9adec8996caf8cf288032699fdf8e2c695f08332
   body_extraction:
     yield_pattern:
       match:
@@ -138,11 +205,16 @@ object_types:
           from: section_body
           after_heading: Rationale
           required: true
+        invariants:
+          from: section_body
+          after_heading: Invariants
+          required: false
 - name: kpi
   allowed_links:
     measures: [measurable]
   data_schema:
-    type: object
+    schema: schemas/Kpi.json
+    digest: sha256:6d3b24df285968940f04499f3d039cbe284659ce9830da387458ea0bdd2e1545
   body_extraction:
     yield_pattern:
       match:
@@ -163,4 +235,12 @@ object_types:
           from: frontmatter_field
           path:
           - threshold
+          required: false
+        properties:
+          from: section_body
+          after_heading: Properties
+          required: false
+        invariants:
+          from: section_body
+          after_heading: Invariants
           required: false

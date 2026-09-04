@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/ThresholdDecl.json",
+  "type": "object",
+  "properties": {
+    "level": {
+      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/ThresholdLevel.json"
+    },
+    "comparator": {
+      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/Comparator.json"
+    },
+    "bound": {
+      "type": "string"
+    },
+    "doc": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "level",
+    "comparator",
+    "bound"
+  ],
+  "unevaluatedProperties": {
+    "not": {}
+  },
+  "description": "A declared alerting bound on a measure definition."
+}
