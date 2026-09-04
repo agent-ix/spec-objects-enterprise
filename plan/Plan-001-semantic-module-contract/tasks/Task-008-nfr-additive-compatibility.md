@@ -2,7 +2,7 @@
 id: Task-008
 title: "NFR-001 — additive-compatibility verification against the 0.1.0 baseline"
 type: Task
-status: todo
+status: done
 track: C
 priority: P0
 relationships:
@@ -30,10 +30,10 @@ checked-in 0.1.0 baseline.
 
 ## Subtasks
 
-- [ ] **Zero locators changed**: every 0.1.0 locator present in 0.2.0 with identical facets (TC-060).
-- [ ] **Zero error findings**: every checked-in 0.1.0 skeleton validates under 0.2.0 (TC-061).
-- [ ] **Zero legacy-form warnings**: no 0.1.0 enterprise skeleton carries a `## Properties` section in any form, so the measured value is 0, not the sibling module's 1 (TC-062).
-- [ ] **Identical yields**: each 0.1.0 skeleton's required-heading section bodies and frontmatter yields are byte-identical under 0.1.0 and 0.2.0 (TC-063).
+- [x] **Zero locators changed**: every 0.1.0 locator present in 0.2.0 with identical facets (TC-060).
+- [x] **Zero error findings**: every checked-in 0.1.0 skeleton validates under 0.2.0 (TC-061).
+- [x] **Zero legacy-form warnings**: no 0.1.0 enterprise skeleton carries a `## Properties` section in any form, so the measured value is 0, not the sibling module's 1 (TC-062).
+- [x] **Identical yields**: each 0.1.0 skeleton's required-heading section bodies and frontmatter yields are byte-identical under 0.1.0 and 0.2.0 (TC-063).
 
 ## Deliverables
 

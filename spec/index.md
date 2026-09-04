@@ -15,4 +15,4 @@ okf_version: "0.1"
 * [Usecase](./usecase/index.md) - Use-case artifacts.
 * [Spec](./spec.md)
 * [Test Matrix](./tests.md)
-* [Reviews](./reviews/4-semantic-module-contract/base.md) - SpecReviews for issue #4.
+* [Reviews](./reviews/4-semantic-module-contract/base.md) - SpecReviews for issue #4 (spec review round); the code review and gap analysis are at `reviews/` in the repository root.

@@ -208,6 +208,33 @@ def test_capability_rules(schema_registry):
         "Capability",
         records.capability_record(operations=[records.operation()]),
     )
+    # The cross-cutting support models the FR-004 table gives every type. They
+    # are hand-built: no extractor populates them (agent-ix/quoin#335), so this
+    # is schema evidence, not extraction evidence.
+    valid(
+        schema_registry,
+        "Capability",
+        records.capability_record(
+            owner=records.ownership(),
+            lifecycle=records.lifecycle(),
+            provenance=records.provenance(),
+        ),
+    )
+    invalid(
+        schema_registry,
+        "Capability",
+        records.capability_record(owner={"owner": "FulfillmentPlatform"}),
+    )
+    invalid(
+        schema_registry,
+        "Capability",
+        records.capability_record(lifecycle=records.lifecycle("retired_but_not")),
+    )
+    invalid(
+        schema_registry,
+        "Capability",
+        records.capability_record(provenance={"method": "corpus review"}),
+    )
 
 
 @pytest.mark.trace("TC-032", "FR-004-AC-3")

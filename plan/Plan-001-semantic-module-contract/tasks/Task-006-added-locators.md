@@ -2,7 +2,7 @@
 id: Task-006
 title: "FR-003 — required:false locators for the sections the skeletons introduce"
 type: Task
-status: todo
+status: done
 track: A
 priority: P1
 relationships:
@@ -26,12 +26,12 @@ that predate it.
 
 ## Subtasks
 
-- [ ] **`properties`** locator on `capability`, `business_function`, `value_stream`, `decision`, `objective`, `kpi`.
-- [ ] **`invariants`** locator on all seven types.
-- [ ] **`operations`** locator on `business_function`.
-- [ ] **Every added locator `required: false`** (FR-003-CON-2), asserted by TC-023.
-- [ ] **No skeleton carries an H2 the manifest does not assert**, and every `required: true` heading is present (TC-055).
-- [ ] **Regenerate digests** — the manifest changed, so `make schemas` runs and `make schemas-check` must exit zero.
+- [x] **`properties`** locator on `capability`, `business_function`, `value_stream`, `decision`, `objective`, `kpi`.
+- [x] **`invariants`** locator on all seven types.
+- [x] **`operations`** locator on `business_function`.
+- [x] **Every added locator `required: false`** (FR-003-CON-2), asserted by TC-023.
+- [x] **No skeleton carries an H2 the manifest does not assert**, and every `required: true` heading is present (TC-055).
+- [x] **Regenerate digests** — the manifest changed, so `make schemas` runs and `make schemas-check` must exit zero.
 
 ## Deliverables
 

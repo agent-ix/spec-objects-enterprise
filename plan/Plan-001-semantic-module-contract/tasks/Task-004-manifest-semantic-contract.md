@@ -2,7 +2,7 @@
 id: Task-004
 title: "FR-003 — manifest 0.2.0, the semantic block and reference-form data_schema"
 type: Task
-status: todo
+status: done
 track: A
 priority: P0
 relationships:
@@ -39,13 +39,13 @@ reference form, and leave every 0.1.0 locator exactly as it was.
 
 ## Subtasks
 
-- [ ] **`semantic` block** with exactly the nine admitted keys: `contract_version: 1.0.0`, `semantic_core: 0.1.0`, `package: agent-ix/spec-objects-enterprise`, `exports` (the seven types), `imports: {}`, `targets: [json-schema, markdown]`, `mappings: [typed-table, sysml-fence, ocl-clause]`, `compatibility_posture: additive`, `legacy_forms: warning`.
-- [ ] **Reference-form `data_schema`** on all seven types: `{schema: schemas/<Model>.json, digest: sha256:<hex>}`, written by the generator.
-- [ ] **Version 0.2.0** in the manifest and in the `@jsonSchema` base, in one commit.
-- [ ] **Baseline diff**: every 0.1.0 locator present with identical `from`, `path`, heading, `language`, `required`, `multiple` and `assert` facets, compared against the Task-007 baseline.
-- [ ] **`allowed_links` / verb-enum equality** asserted per type (TC-028).
-- [ ] **Registry load**: `quire.Registry.load_from([module dir])` lists all seven archetypes and `validate_document` reports no `semantic.*` load failure.
-- [ ] **Refusal fixtures**: a manifest copy with an extra `semantic` key `foo`, and a copy with an altered digest, are each refused by the loader.
+- [x] **`semantic` block** with exactly the nine admitted keys: `contract_version: 1.0.0`, `semantic_core: 0.1.0`, `package: agent-ix/spec-objects-enterprise`, `exports` (the seven types), `imports: {}`, `targets: [json-schema, markdown]`, `mappings: [typed-table, sysml-fence, ocl-clause]`, `compatibility_posture: additive`, `legacy_forms: warning`.
+- [x] **Reference-form `data_schema`** on all seven types: `{schema: schemas/<Model>.json, digest: sha256:<hex>}`, written by the generator.
+- [x] **Version 0.2.0** in the manifest and in the `@jsonSchema` base, in one commit.
+- [x] **Baseline diff**: every 0.1.0 locator present with identical `from`, `path`, heading, `language`, `required`, `multiple` and `assert` facets, compared against the Task-007 baseline.
+- [x] **`allowed_links` / verb-enum equality** asserted per type (TC-028).
+- [x] **Registry load**: `quire.Registry.load_from([module dir])` lists all seven archetypes and `validate_document` reports no `semantic.*` load failure.
+- [x] **Refusal fixtures**: a manifest copy with an extra `semantic` key `foo`, and a copy with an altered digest, are each refused by the loader.
 
 ## Deliverables
 

@@ -115,6 +115,20 @@ def outcome(name: str = "OrderDelivered") -> dict[str, Any]:
     return {"name": name, "doc": "The customer receives the ordered goods."}
 
 
+def ownership() -> dict[str, Any]:
+    """Owner and steward as references. No role name, no score, no rating —
+    FR-004-CON-3, the ticket's safety gate."""
+    return {"owner": f"{PACKAGE}/type/FulfillmentPlatform"}
+
+
+def lifecycle(state: str = "active") -> dict[str, Any]:
+    return {"state": state, "since": "2026-01-01"}
+
+
+def provenance() -> dict[str, Any]:
+    return {"source": f"{PACKAGE}/type/AdoptEventDrivenOrchestration"}
+
+
 def capability_record(**overrides: Any) -> dict[str, Any]:
     record: dict[str, Any] = {"fields": [identity_field("capability_id")]}
     record.update(overrides)

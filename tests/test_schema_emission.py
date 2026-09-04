@@ -24,6 +24,7 @@ from tests.conftest import (
     REPO_ROOT,
     SCHEMAS_DIR,
     SEMANTIC_CORE_BASE,
+    SEMANTIC_CORE_DIR,
     SUPPORT_MODELS,
     manifest_version,
     module_base,
@@ -126,7 +127,14 @@ def test_every_ref_resolves_to_a_shipped_sibling_or_semantic_core():
                 ref[len(base) :] in shipped
             ), f"{owner} references an unshipped sibling {ref}"
         else:
+            # Not a prefix check: the generator falls back to the semantic-core
+            # base for any relative `$ref` it does not recognise as a sibling,
+            # so a dangling `.../semantic-core/0.1.0/Nonexistent.json` would
+            # carry the right prefix and resolve to nothing. Each one is
+            # resolved against the package the pinned toolchain installs.
             assert ref.startswith(SEMANTIC_CORE_BASE), f"{owner} references {ref}"
+            target = SEMANTIC_CORE_DIR / ref[len(SEMANTIC_CORE_BASE) :]
+            assert target.is_file(), f"{owner} references a missing {ref}"
 
 
 @pytest.mark.trace("TC-013", "FR-002-AC-4")

@@ -2,7 +2,7 @@
 id: Task-011
 title: "Gate — Kpi, Objective and Principle end to end"
 type: Task
-status: todo
+status: done
 track: A
 priority: P0
 relationships:
@@ -24,12 +24,12 @@ written.
 
 ## Gate criteria
 
-- [ ] **`Kpi.json` emits with both `allOf` `contains` clauses intact** — the measured-field rule (`minContains: 1`) and the temporal-field rule (`maxContains: 0`) — alongside the `@contains(IdentityField) @maxContains(0)` clause on the same array. This is the risk register's top technical hazard: no other module in the programme emits two `allOf` `contains` clauses over one array.
-- [ ] **`Objective.json` emits with the temporal rule** (`minContains: 1` on `TemporalField`) and the identity rule together.
-- [ ] **`Principle.json` seals with `fields` and `operations` absent**, so a record carrying either is refused.
-- [ ] **A real 2020-12 validator agrees** with all three, with every `$ref` resolved against the committed `schemas/` and the installed semantic-core, and with the records sealed.
-- [ ] **The five identity rules discriminate**: a definition-shaped KPI record validates; the same record with an identity field, with a `Timestamp` field, or with no unit-bearing field each fails; a record carrying `targets` fails; an objective record carrying `measure` fails.
-- [ ] **`make schemas-check` exits zero** on the committed tree after the spike.
+- [x] **`Kpi.json` emits with both `allOf` `contains` clauses intact** — the measured-field rule (`minContains: 1`) and the temporal-field rule (`maxContains: 0`) — alongside the `@contains(IdentityField) @maxContains(0)` clause on the same array. This is the risk register's top technical hazard: no other module in the programme emits two `allOf` `contains` clauses over one array.
+- [x] **`Objective.json` emits with the temporal rule** (`minContains: 1` on `TemporalField`) and the identity rule together.
+- [x] **`Principle.json` seals with `fields` and `operations` absent**, so a record carrying either is refused.
+- [x] **A real 2020-12 validator agrees** with all three, with every `$ref` resolved against the committed `schemas/` and the installed semantic-core, and with the records sealed.
+- [x] **The five identity rules discriminate**: a definition-shaped KPI record validates; the same record with an identity field, with a `Timestamp` field, or with no unit-bearing field each fails; a record carrying `targets` fails; an objective record carrying `measure` fails.
+- [x] **`make schemas-check` exits zero** on the committed tree after the spike.
 
 ## Deliverables
 

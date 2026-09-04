@@ -2,7 +2,7 @@
 id: Task-007
 title: "FR-005 — Quire provisioning, the no-vacuous-skip rule and the 0.1.0 baseline"
 type: Task
-status: todo
+status: done
 track: B
 priority: P0
 relationships:
@@ -23,11 +23,11 @@ pre-image of the 0.1.0 manifest and skeletons.
 
 ## Subtasks
 
-- [ ] **`make dev-quire`** installing the Quire wheel exposing `extract_semantic` from the dev-only `pypi.ix`. `quire` is **not** declared in `pyproject.toml`: no committable index carries 0.46.0 (`agent-ix/quire-rs#392`).
-- [ ] **Fail, never skip.** `tests/conftest.py` fails every semantic test when `quire` is absent or lacks `extract_semantic`, with a message naming the missing function, `make dev-quire` and `agent-ix/quire-rs#392`.
-- [ ] **Schema registry fixture** that resolves every `$ref` locally — module models from the committed `schemas/`, grammar models from the installed `@agent-ix/semantic-core` — and fails naming `npm ci` when the package is absent.
-- [ ] **0.1.0 baseline**, captured before Task-004 edits the manifest: `tests/fixtures/baseline-0.1.0/body_extraction.json` and `tests/fixtures/baseline-0.1.0/skeletons/*.md` (all seven, verbatim).
-- [ ] **Shared fixtures** for the manifest, the `semantic` block, the `module` block `extract_semantic` takes, and a bundle index built from the skeleton frontmatter.
+- [x] **`make dev-quire`** installing the Quire wheel exposing `extract_semantic` from the dev-only `pypi.ix`. `quire` is **not** declared in `pyproject.toml`: no committable index carries 0.46.0 (`agent-ix/quire-rs#392`).
+- [x] **Fail, never skip.** `tests/conftest.py` fails every semantic test when `quire` is absent or lacks `extract_semantic`, with a message naming the missing function, `make dev-quire` and `agent-ix/quire-rs#392`.
+- [x] **Schema registry fixture** that resolves every `$ref` locally — module models from the committed `schemas/`, grammar models from the installed `@agent-ix/semantic-core` — and fails naming `npm ci` when the package is absent.
+- [x] **0.1.0 baseline**, captured before Task-004 edits the manifest: `tests/fixtures/baseline-0.1.0/body_extraction.json` and `tests/fixtures/baseline-0.1.0/skeletons/*.md` (all seven, verbatim).
+- [x] **Shared fixtures** for the manifest, the `semantic` block, the `module` block `extract_semantic` takes, and a bundle index built from the skeleton frontmatter.
 
 ## Deliverables
 

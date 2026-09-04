@@ -2,7 +2,7 @@
 id: Task-009
 title: "IT-002 — Quoin install roundtrip with unconditional restore"
 type: Task
-status: todo
+status: blocked
 track: C
 priority: P1
 relationships:

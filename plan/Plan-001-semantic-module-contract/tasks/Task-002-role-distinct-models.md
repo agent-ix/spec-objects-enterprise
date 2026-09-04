@@ -2,7 +2,7 @@
 id: Task-002
 title: "FR-004 — the seven role-distinct models and the support models"
 type: Task
-status: todo
+status: done
 track: A
 priority: P0
 relationships:
@@ -53,16 +53,16 @@ nowhere.
 
 ## Subtasks
 
-- [ ] **Spike first: `Kpi` and `Objective`.** Author these two models before the other five and run Task-011's gate on them. They are the only place in the programme where two `@extension("allOf", …)` `contains` clauses sit over one array; if the emitter refuses the second, the identity rule needs a different expression and the remaining models must not be written against a shape that cannot compile.
-- [ ] **Seven object-type models.** `Capability`, `BusinessFunction`, `ValueStream`, `Decision`, `Objective`, `Principle`, `Kpi` — each sealed with `unevaluatedProperties: {not: {}}` and each carrying the required, optional and forbidden keys of the FR-004 table.
-- [ ] **Marker support models.** `IdentityField`, `TemporalField`, `TemporalTypeRef`, `MeasuredField`, `MeasuredTypeRef` — open models used only as `contains` predicates.
-- [ ] **Declaration support models.** `MeasureDecl`, `TargetDecl`, `ThresholdDecl`, `StageDecl`, `OutcomeDecl`, `AlternativeDecl`, `LifecycleDecl`, `OwnershipDecl`, `ProvenanceDecl` — sealed.
-- [ ] **Closed enums.** `AggregationKind`, `Direction`, `Comparator`, `ThresholdLevel`, `LifecycleState`.
-- [ ] **Relation-verb enums**, one per type: `CapabilityVerb`, `BusinessFunctionVerb`, `ValueStreamVerb`, `DecisionVerb`, `ObjectiveVerb`, `PrincipleVerb`, `KpiVerb`, each equal to that type's manifest `allowed_links` key set.
-- [ ] **Item rules through official decorators.** `@contains(IdentityField)` for "≥ 1 identity field"; `@contains(IdentityField) @minContains(0) @maxContains(0)` for "0 identity fields"; the temporal and measured rules as `@extension("allOf", …)` clauses referencing `TemporalField.json` and `MeasuredField.json`.
-- [ ] **Verb narrowing over the `$ref`.** Narrow `relations[].verb` with an `@extension("allOf", …)` clause; do not redeclare `RelationDecl` (FR-004-CON-1).
-- [ ] **Forward compatibility.** Every key the current extractor does not populate is optional, so today's records validate and a future extractor fills them without a schema change.
-- [ ] **Record fixtures.** Positive and negative JSON records per type, validated against the emitted files with a real 2020-12 validator and a registry that resolves every `$ref` locally.
+- [x] **Spike first: `Kpi` and `Objective`.** Author these two models before the other five and run Task-011's gate on them. They are the only place in the programme where two `@extension("allOf", …)` `contains` clauses sit over one array; if the emitter refuses the second, the identity rule needs a different expression and the remaining models must not be written against a shape that cannot compile.
+- [x] **Seven object-type models.** `Capability`, `BusinessFunction`, `ValueStream`, `Decision`, `Objective`, `Principle`, `Kpi` — each sealed with `unevaluatedProperties: {not: {}}` and each carrying the required, optional and forbidden keys of the FR-004 table.
+- [x] **Marker support models.** `IdentityField`, `TemporalField`, `TemporalTypeRef`, `MeasuredField`, `MeasuredTypeRef` — open models used only as `contains` predicates.
+- [x] **Declaration support models.** `MeasureDecl`, `TargetDecl`, `ThresholdDecl`, `StageDecl`, `OutcomeDecl`, `AlternativeDecl`, `LifecycleDecl`, `OwnershipDecl`, `ProvenanceDecl` — sealed.
+- [x] **Closed enums.** `AggregationKind`, `Direction`, `Comparator`, `ThresholdLevel`, `LifecycleState`.
+- [x] **Relation-verb enums**, one per type: `CapabilityVerb`, `BusinessFunctionVerb`, `ValueStreamVerb`, `DecisionVerb`, `ObjectiveVerb`, `PrincipleVerb`, `KpiVerb`, each equal to that type's manifest `allowed_links` key set.
+- [x] **Item rules through official decorators.** `@contains(IdentityField)` for "≥ 1 identity field"; `@contains(IdentityField) @minContains(0) @maxContains(0)` for "0 identity fields"; the temporal and measured rules as `@extension("allOf", …)` clauses referencing `TemporalField.json` and `MeasuredField.json`.
+- [x] **Verb narrowing over the `$ref`.** Narrow `relations[].verb` with an `@extension("allOf", …)` clause; do not redeclare `RelationDecl` (FR-004-CON-1).
+- [x] **Forward compatibility.** Every key the current extractor does not populate is optional, so today's records validate and a future extractor fills them without a schema change.
+- [x] **Record fixtures.** Positive and negative JSON records per type, validated against the emitted files with a real 2020-12 validator and a registry that resolves every `$ref` locally.
 
 ## Deliverables
 

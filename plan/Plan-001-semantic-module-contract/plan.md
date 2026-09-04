@@ -2,7 +2,7 @@
 id: Plan-001
 title: "spec-objects-enterprise — semantic module contract (issue #4)"
 type: Plan
-status: active
+status: complete
 relationships:
   - target: ix://agent-ix/spec-objects-enterprise/StR-001
     type: references
@@ -30,20 +30,20 @@ relationships:
 ## Requirements Summary
 
 ### Stakeholder Requirements
-- [ ] **StR-001**: Enterprise-architecture specifications yield extractable graph entities; every enterprise object carries one typed structural contract downstream frontends can read, and a KPI definition is distinguishable from a reading of it (VC-1..VC-3).
+- [x] **StR-001**: Enterprise-architecture specifications yield extractable graph entities; every enterprise object carries one typed structural contract downstream frontends can read, and a KPI definition is distinguishable from a reading of it (VC-1..VC-3).
 
 ### User Stories
-- [ ] **US-001**: Declare every enterprise object type against the shared semantic-core grammar, so one declaration record per object validates identically in Quire, Quoin and the compiler.
+- [x] **US-001**: Declare every enterprise object type against the shared semantic-core grammar, so one declaration record per object validates identically in Quire, Quoin and the compiler.
 
 ### Functional Requirements
-- [ ] **FR-001**: The manifest conforms to filament-core-service FR-035 at revision `a77f31e` and activates idempotently; the registered `data_schema` is the reference object as posted.
-- [ ] **FR-002**: Emit one JSON Schema 2020-12 document per model from `typespec/main.tsp` with the official `@typespec/json-schema` emitter at a pinned toolchain; normalize `$id`/`$ref`; gate drift; package the schemas into the wheel and the npm tarball; version-embedded `$id` with an atomic bump procedure.
-- [ ] **FR-003**: `manifest.yaml` at version 0.2.0 carries the quoin FR-070 `semantic` block and a reference-form `data_schema` (path + digest) per exported object type, every 0.1.0 locator unchanged, and each type's `allowed_links` key set equal to its emitted relation-verb enum.
-- [ ] **FR-004**: One role-distinct model per enterprise object type — required, forbidden and item rules — with the KPI definition / measurement boundary expressed as schema rules, every grammar item by `$ref` to semantic-core 0.1.0, and no redeclaration.
-- [ ] **FR-005**: Every skeleton is an executable typed fixture in the quoin FR-071/FR-072 Markdown forms, with three `sysml` alternates and ten negative fixtures; the semantic suite fails rather than skips when the engine is absent.
+- [x] **FR-001**: The manifest conforms to filament-core-service FR-035 at revision `a77f31e` and activates idempotently; the registered `data_schema` is the reference object as posted.
+- [x] **FR-002**: Emit one JSON Schema 2020-12 document per model from `typespec/main.tsp` with the official `@typespec/json-schema` emitter at a pinned toolchain; normalize `$id`/`$ref`; gate drift; package the schemas into the wheel and the npm tarball; version-embedded `$id` with an atomic bump procedure.
+- [x] **FR-003**: `manifest.yaml` at version 0.2.0 carries the quoin FR-070 `semantic` block and a reference-form `data_schema` (path + digest) per exported object type, every 0.1.0 locator unchanged, and each type's `allowed_links` key set equal to its emitted relation-verb enum.
+- [x] **FR-004**: One role-distinct model per enterprise object type — required, forbidden and item rules — with the KPI definition / measurement boundary expressed as schema rules, every grammar item by `$ref` to semantic-core 0.1.0, and no redeclaration.
+- [x] **FR-005**: Every skeleton is an executable typed fixture in the quoin FR-071/FR-072 Markdown forms, with three `sysml` alternates and ten negative fixtures; the semantic suite fails rather than skips when the engine is absent.
 
 ### Non-Functional Requirements
-- [ ] **NFR-001**: Additive compatibility — the checked-in 0.1.0 skeleton set still validates at 0.2.0, every 0.1.0 locator definition is unchanged, and the required-heading and frontmatter yields are byte-identical.
+- [x] **NFR-001**: Additive compatibility — the checked-in 0.1.0 skeleton set still validates at 0.2.0, every 0.1.0 locator definition is unchanged, and the required-heading and frontmatter yields are byte-identical.
 
 ### Integration Test Requirements
 - [ ] **IT-001**: Activation roundtrip against a running filament-core-service at `a77f31e` or later.
