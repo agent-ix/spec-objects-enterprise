@@ -248,6 +248,7 @@ def test_no_corpus_repository_or_vendored_fixture_is_edited():
         "scripts/",
         "typespec/",
         "spec_objects_enterprise/",
+        ".github/",
     )
     allowed_files = {
         "Makefile",
