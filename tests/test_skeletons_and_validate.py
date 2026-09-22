@@ -29,7 +29,6 @@ import re
 import pytest
 import yaml
 
-
 PKG_ROOT = pathlib.Path(__file__).resolve().parent.parent / "spec_objects_enterprise"
 MANIFEST_PATH = PKG_ROOT / "manifest.yaml"
 SKELETONS_DIR = PKG_ROOT / "skeletons"
