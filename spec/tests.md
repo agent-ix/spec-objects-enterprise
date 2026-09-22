@@ -93,7 +93,7 @@ cannot provision (a running `filament-core-service`, a Quoin built from main).
 | TC-016 | Two generator runs over one source are byte-identical | Integration | P1 | FR-002-CON-3 | ✅ |
 | TC-017 | The build uses the official `@typespec/json-schema` emitter only and no emitted file is hand-edited | Inspection | P2 | FR-002-CON-1 | ✅ |
 | TC-018 | No `.npmrc`, no `file:`/`link:` dependency, exact toolchain pins in `package.json` | Inspection | P2 | FR-002-CON-2 | ✅ |
-| TC-019 | `package-lock.json` resolves every package from npmjs except `@agent-ix/semantic-core` (npm.ix) | Unit | P2 | FR-002-CON-4 | ✅ |
+| TC-019 | `package-lock.json` resolves every package from npmjs except `@agent-ix/semantic-core` (GitHub Packages) | Unit | P2 | FR-002-CON-4 | ✅ |
 | TC-020 | The `semantic` block equals the nine admitted keys and `exports` equals the seven types | Unit | P0 | FR-003-AC-1, FR-003-CON-1 | ✅ |
 | TC-021 | Every exported type's `data_schema` is the reference form whose file hashes to the recorded digest | Unit | P0 | FR-003-AC-2 | ✅ |
 | TC-022 | Every 0.1.0 locator is unchanged against the checked-in baseline | Unit | P0 | FR-003-AC-3 | ✅ |
@@ -143,9 +143,8 @@ cannot provision (a running `filament-core-service`, a Quoin built from main).
 ## Test Environment
 
 Every `Integration` row that names Quire runs against the Quire wheel FR-005
-Inputs pins, provisioned by `make dev-quire`. That wheel is not on any index
-this repository may commit a dependency against (`internal-pypi` serves 0.33.0
-at most); `agent-ix/quire-rs#392` is the blocking issue. The suite **fails**
+Inputs pins, a dev dependency resolved from `internal-pypi` by `poetry
+install`. The suite **fails**
 rather than skips when `extract_semantic` is absent, so no row here can be
 reported green without the engine under test. The one exception is TC-061, an
 explicit expected failure while `agent-ix/quire-rs#391` is open.

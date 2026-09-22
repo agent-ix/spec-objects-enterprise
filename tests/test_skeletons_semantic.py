@@ -25,7 +25,6 @@ from tests.conftest import (
     frontmatter,
     locators,
     object_type,
-    semantic_core_engine_xfail,
 )
 
 IDENTIFIER = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*$")
@@ -85,7 +84,6 @@ def extract(quire_engine, module, bundle, path):
 
 
 @pytest.mark.trace("TC-050", "FR-005-AC-1")
-@semantic_core_engine_xfail()
 def test_every_skeleton_validates_with_no_error(quire_engine, skeletons):
     assert len(skeletons) == 10
     for path in skeletons:
@@ -100,7 +98,6 @@ def test_every_skeleton_validates_with_no_error(quire_engine, skeletons):
 
 
 @pytest.mark.trace("TC-051", "FR-005-AC-2", "FR-005-CON-2")
-@semantic_core_engine_xfail()
 def test_table_and_sysml_skeletons_extract_to_identical_fields(
     quire_engine, semantic_module, bundle_index
 ):
@@ -120,7 +117,6 @@ def test_table_and_sysml_skeletons_extract_to_identical_fields(
 
 
 @pytest.mark.trace("TC-052", "FR-005-AC-3")
-@semantic_core_engine_xfail()
 def test_under_the_bundle_index_every_skeleton_extracts_clean(
     quire_engine, semantic_module, bundle_index
 ):
@@ -143,7 +139,6 @@ def test_under_the_bundle_index_every_skeleton_extracts_clean(
 
 
 @pytest.mark.trace("TC-053", "FR-005-AC-4")
-@semantic_core_engine_xfail()
 def test_availability_states_match_the_declared_set(
     quire_engine, semantic_module, bundle_index
 ):
@@ -161,7 +156,6 @@ def test_availability_states_match_the_declared_set(
 
 
 @pytest.mark.trace("TC-064", "FR-005-AC-9")
-@semantic_core_engine_xfail()
 def test_kpi_declares_a_measure_and_the_objective_declares_a_horizon(
     quire_engine, semantic_module, bundle_index
 ):
@@ -183,7 +177,6 @@ def test_kpi_declares_a_measure_and_the_objective_declares_a_horizon(
 
 
 @pytest.mark.trace("TC-054", "FR-005-AC-5")
-@semantic_core_engine_xfail()
 def test_every_negative_fixture_fails_with_its_expected_code(quire_engine):
     present = {path.name for path in NEGATIVE_DIR.glob("*.md")}
     assert present == set(EXPECTED_NEGATIVES), present ^ set(EXPECTED_NEGATIVES)
@@ -201,7 +194,6 @@ def test_every_negative_fixture_fails_with_its_expected_code(quire_engine):
 
 
 @pytest.mark.trace("TC-057", "FR-005-CON-2")
-@semantic_core_engine_xfail()
 def test_both_properties_forms_in_one_artifact_are_refused(quire_engine):
     path = NEGATIVE_DIR / "properties-both-forms.md"
     text = path.read_text()
@@ -256,6 +248,7 @@ def test_no_corpus_repository_or_vendored_fixture_is_edited():
         "scripts/",
         "typespec/",
         "spec_objects_enterprise/",
+        ".github/workflows/",
     )
     allowed_files = {
         "Makefile",
