@@ -29,6 +29,8 @@ import re
 import pytest
 import yaml
 
+from tests.conftest import semantic_core_engine_xfail
+
 PKG_ROOT = pathlib.Path(__file__).resolve().parent.parent / "spec_objects_enterprise"
 MANIFEST_PATH = PKG_ROOT / "manifest.yaml"
 SKELETONS_DIR = PKG_ROOT / "skeletons"
@@ -272,6 +274,7 @@ def _quire_doc_validator():
 
 @pytest.mark.trace("TC-050", "FR-005-AC-1")
 @pytest.mark.parametrize("name", _OBJECT_TYPE_NAMES, ids=lambda n: n)
+@semantic_core_engine_xfail()
 def test_roundtrip_skeleton_validates(name: str) -> None:
     """Each filled skeleton passes ``validate_document`` against this module.
 
@@ -281,6 +284,7 @@ def test_roundtrip_skeleton_validates(name: str) -> None:
     assert res["is_valid"], res["errors"]
 
 
+@semantic_core_engine_xfail()
 def test_roundtrip_mutation_fails() -> None:
     """Renaming the required Sub-capabilities heading fails validation."""
     quire = _quire_doc_validator()

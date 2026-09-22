@@ -9,7 +9,7 @@
   },
   "semanticCore": {
     "name": "@agent-ix/semantic-core",
-    "version": "0.1.0"
+    "version": "0.3.0"
   },
   "base": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/",
   "normalization": {
@@ -26,7 +26,7 @@
       "Principle.json",
       "ValueStream.json"
     ],
-    "note": "rewrote relative $id/$ref to the module base or semantic-core 0.1.0"
+    "note": "rewrote relative $id/$ref to the module base or semantic-core 0.3.0"
   },
   "files": [
     "AggregationKind.json",
@@ -63,5 +63,5 @@
     "ValueStream.json",
     "ValueStreamVerb.json"
   ],
-  "digest": "sha256:746ddefdc16fe36c937cc7388220c7534527040355b0e20f8ba9790cb953c3d9"
+  "digest": "sha256:3466969b6a5e80cd82117007812bf23276e0524bc21e97afe72d7290174036e6"
 }

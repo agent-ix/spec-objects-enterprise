@@ -30,7 +30,7 @@ delivery window.
 | triggering_stakeholder | String | 1..1 | minLength: 1 |
 | value_received | String | 1..1 | minLength: 1 |
 | stage_count | Integer | 1..1 | min: 2 |
-| contained_function | SupplyChainManagement | 0..* | |
+| contained_function | SupplyChainManagement | 0..* unique | |
 
 ## Stages
 

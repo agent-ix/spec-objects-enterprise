@@ -48,7 +48,7 @@ the module delivers.
 - The Module manifest (`spec_objects_enterprise/manifest.yaml`) and its
   activation against filament-core-service.
 - The semantic-module contract (issue #4): a TypeSpec source importing
-  `@agent-ix/semantic-core` 0.1.0, the emitted JSON Schema per declared model
+  `@agent-ix/semantic-core` 0.3.0, the emitted JSON Schema per declared model
   shipped under `spec_objects_enterprise/schemas/`, the manifest `semantic`
   block with reference-form `data_schema`, and the skeletons rewritten as
   executable typed fixtures with negative counterparts.

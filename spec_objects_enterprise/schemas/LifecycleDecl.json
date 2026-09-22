@@ -10,7 +10,7 @@
       "type": "string"
     },
     "superseded_by": {
-      "$ref": "https://schemas.agent-ix.org/semantic-core/0.1.0/SemanticId.json"
+      "$ref": "https://schemas.agent-ix.org/semantic-core/0.3.0/SemanticId.json"
     }
   },
   "required": [

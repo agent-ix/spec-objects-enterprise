@@ -23,7 +23,7 @@ attribute objective_id : UUID[1..1] { identity }
 attribute horizon : Timestamp[1..1]
 attribute baseline_hours : Integer [h][1..1] { min: 0 }
 attribute target_hours : Integer [h][1..1] { min: 0 }
-ref item measured_by : OnTimeDeliveryRate[0..*]
+ref item measured_by : OnTimeDeliveryRate[0..* unique]
 ```
 
 ## Invariants

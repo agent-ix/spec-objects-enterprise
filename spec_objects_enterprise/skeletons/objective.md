@@ -38,7 +38,7 @@ daily carrier pickup at the two highest-volume centers.
 | horizon | Timestamp | 1..1 | |
 | baseline_hours | Integer [h] | 1..1 | min: 0 |
 | target_hours | Integer [h] | 1..1 | min: 0 |
-| measured_by | OnTimeDeliveryRate | 0..* | |
+| measured_by | OnTimeDeliveryRate | 0..* unique | |
 
 ## Invariants
 

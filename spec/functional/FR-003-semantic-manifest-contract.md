@@ -40,7 +40,7 @@ them, while every existing extraction locator keeps its meaning.
 
 ## Behavior
 
-- The manifest `semantic` block SHALL carry exactly these keys and values: `contract_version: 1.0.0`, `semantic_core: 0.1.0`, `package: agent-ix/spec-objects-enterprise`, `exports` listing every object type that ships a schema, `imports: {}`, `targets: [json-schema, markdown]`, `mappings: [typed-table, sysml-fence, ocl-clause]`, `compatibility_posture: additive`, `legacy_forms: warning`.
+- The manifest `semantic` block SHALL carry exactly these keys and values: `contract_version: 1.0.0`, `semantic_core: 0.3.0`, `package: agent-ix/spec-objects-enterprise`, `exports` listing every object type that ships a schema, `imports: {}`, `targets: [json-schema, markdown]`, `mappings: [typed-table, sysml-fence, ocl-clause]`, `compatibility_posture: additive`, `legacy_forms: warning`.
 - `semantic.exports` SHALL name all seven object types: `capability`, `business_function`, `value_stream`, `decision`, `objective`, `principle`, `kpi`.
 - Every exported object type's `data_schema` SHALL be `{ schema: schemas/<Model>.json, digest: sha256:<hex> }` where `<hex>` is the SHA-256 of the shipped file bytes.
 - No exported object type SHALL carry an inline `data_schema`.

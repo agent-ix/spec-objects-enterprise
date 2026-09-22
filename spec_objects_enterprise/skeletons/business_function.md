@@ -29,7 +29,7 @@ object: business_function
 | function_id | UUID | 1..1 | identity |
 | name | String | 1..1 | minLength: 1, maxLength: 120 |
 | planning_cycle | Duration [d] | 1..1 | |
-| supported_capability | OrderFulfillment | 0..* | |
+| supported_capability | OrderFulfillment | 0..* unique | |
 
 ## Description
 

@@ -4,7 +4,7 @@
   "type": "object",
   "properties": {
     "measure": {
-      "$ref": "https://schemas.agent-ix.org/semantic-core/0.1.0/SemanticId.json"
+      "$ref": "https://schemas.agent-ix.org/semantic-core/0.3.0/SemanticId.json"
     },
     "comparator": {
       "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/Comparator.json"
