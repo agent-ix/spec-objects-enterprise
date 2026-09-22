@@ -29,7 +29,6 @@ import re
 import pytest
 import yaml
 
-from tests.conftest import semantic_core_engine_xfail
 
 PKG_ROOT = pathlib.Path(__file__).resolve().parent.parent / "spec_objects_enterprise"
 MANIFEST_PATH = PKG_ROOT / "manifest.yaml"
@@ -263,9 +262,8 @@ def test_frontmatter_carries_declared_fields(name: str) -> None:
 def _quire_doc_validator():
     """Return the quire wheel, failing (never skipping) when it is absent.
 
-    FR-005: a skipped row is not coverage. The engine is provisioned by
-    `make dev-quire`; `agent-ix/quire-rs#392` tracks publishing it to an index
-    this repository may commit a dependency against.
+    FR-005: a skipped row is not coverage. The engine is a dev dependency
+    resolved from `internal-pypi` by `poetry install`.
     """
     from tests.conftest import require_quire
 
@@ -274,7 +272,6 @@ def _quire_doc_validator():
 
 @pytest.mark.trace("TC-050", "FR-005-AC-1")
 @pytest.mark.parametrize("name", _OBJECT_TYPE_NAMES, ids=lambda n: n)
-@semantic_core_engine_xfail()
 def test_roundtrip_skeleton_validates(name: str) -> None:
     """Each filled skeleton passes ``validate_document`` against this module.
 
@@ -284,7 +281,6 @@ def test_roundtrip_skeleton_validates(name: str) -> None:
     assert res["is_valid"], res["errors"]
 
 
-@semantic_core_engine_xfail()
 def test_roundtrip_mutation_fails() -> None:
     """Renaming the required Sub-capabilities heading fails validation."""
     quire = _quire_doc_validator()

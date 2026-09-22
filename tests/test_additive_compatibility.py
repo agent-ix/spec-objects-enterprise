@@ -20,7 +20,6 @@ from tests.conftest import (
     frontmatter,
     locators,
     object_type,
-    semantic_core_engine_xfail,
 )
 
 
@@ -78,7 +77,6 @@ def test_no_baseline_locator_definition_changed():
 
 
 @pytest.mark.trace("TC-061", "NFR-001-AC-2")
-@semantic_core_engine_xfail()
 def test_every_baseline_skeleton_validates_under_the_new_manifest(quire_engine):
     """Measured, not assumed: the seven 0.1.0 skeletons carry no frontmatter
     `object:` key, so Quire runs headings-only validation on them and the typed
@@ -120,7 +118,6 @@ def test_a_legacy_form_artifact_that_declares_its_object_is_not_an_error(quire_e
 
 
 @pytest.mark.trace("TC-062", "NFR-001-AC-3")
-@semantic_core_engine_xfail()
 def test_no_baseline_skeleton_yields_a_legacy_properties_warning(
     quire_engine, semantic_module
 ):
@@ -139,7 +136,6 @@ def test_no_baseline_skeleton_yields_a_legacy_properties_warning(
 
 
 @pytest.mark.trace("TC-063", "NFR-001-AC-4")
-@semantic_core_engine_xfail()
 def test_the_required_yields_are_byte_identical_across_versions(quire_engine):
     """The untyped section and frontmatter yields are what every existing
     consumer reads; the 0.2.0 locators must leave them untouched."""
