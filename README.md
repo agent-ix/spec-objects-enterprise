@@ -66,13 +66,13 @@ its `targets` rather than declaring a measure of its own.
 ```bash
 make schemas        # re-emit schemas/ and the manifest digests from typespec/
 make schemas-check  # fail on any drift (also run by `make lint`)
-make dev-quire      # install the Quire wheel the semantic tests need
+poetry install       # installs the Quire wheel the semantic tests need
 ```
 
-`make dev-quire` exists because the Quire release carrying `extract_semantic`
-is on no index this repository may commit a dependency against
-(`agent-ix/quire-rs#392`). The semantic tests **fail** rather than skip when it
-is absent: a skipped row is not coverage.
+`quire` is a pinned dev dependency resolved from `internal-pypi`, so
+`poetry install` provisions the Quire release carrying `extract_semantic`.
+The semantic tests **fail** rather than skip when it is absent: a skipped
+row is not coverage.
 
 ## How this module is used
 
