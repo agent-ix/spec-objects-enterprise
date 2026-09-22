@@ -4,7 +4,7 @@ version: 0.2.0
 description: 'Filament Module: tier-2 enterprise-architecture ObjectTypes (capability, business_function, value_stream, decision, objective, principle, kpi)'
 semantic:
   contract_version: 1.0.0
-  semantic_core: 0.1.0
+  semantic_core: 0.3.0
   package: agent-ix/spec-objects-enterprise
   exports:
   - capability
@@ -39,7 +39,7 @@ object_types:
     references: [principle]
   data_schema:
     schema: schemas/Capability.json
-    digest: sha256:c30e38cf23cc1dc0023b5b30c4bb7b55a345f0d33e118bd2ac58d34063460f75
+    digest: sha256:c63c2e2cbcc5a4ef1442892d983c4eadddcf5dc0a8aa0cdc8df206d7ed4948d0
   body_extraction:
     yield_pattern:
       match:
@@ -78,7 +78,7 @@ object_types:
     references: [business_function]
   data_schema:
     schema: schemas/BusinessFunction.json
-    digest: sha256:4d9f90ba1f9f83f3cd5ba30852102eb108c95fb6ee63cff1088b1d35030d8339
+    digest: sha256:7ae950486e794b8980d30d91cb3c6a1b59023194bada3c08c514b339a9b961ef
   body_extraction:
     yield_pattern:
       match:
@@ -107,7 +107,7 @@ object_types:
     contains: [business_function]
   data_schema:
     schema: schemas/ValueStream.json
-    digest: sha256:f57a8ba745a504dcd8ea67a6ccbe047f297f767977895acaf31bb7d5b3dd330a
+    digest: sha256:5934819cf43d26b37cd4ec78b6a0f2279e94372c1d4703075742a0c66f3b46ad
   body_extraction:
     yield_pattern:
       match:
@@ -133,7 +133,7 @@ object_types:
     constrains: [capability]
   data_schema:
     schema: schemas/Decision.json
-    digest: sha256:4e03b9d4e07c06d1f3202ab365b98d6992732426ff4894bd84619af9cf1dfa57
+    digest: sha256:8516aa9703005c9fd7894c952c6ce66685e0706cf90592ae069b510d66fc7da1
   body_extraction:
     yield_pattern:
       match:
@@ -159,7 +159,7 @@ object_types:
     references: [kpi, capability]
   data_schema:
     schema: schemas/Objective.json
-    digest: sha256:7113427a1fcb1e20a7ef61e45bb86079db574360b8a45a42aa2bc2e7f74f3d6e
+    digest: sha256:28f580b6ce7888ee8c64d73cd168180114c5722b248d91cebdfd0b60a9f48932
   body_extraction:
     yield_pattern:
       match:
@@ -194,7 +194,7 @@ object_types:
     governs: ["*"]
   data_schema:
     schema: schemas/Principle.json
-    digest: sha256:ffe8f36f8f88a5952f5471ca9adec8996caf8cf288032699fdf8e2c695f08332
+    digest: sha256:39f1280d37c65abd9e42d24f34abd7171b81bf03e81308638b9b899b1af2a11d
   body_extraction:
     yield_pattern:
       match:
@@ -214,7 +214,7 @@ object_types:
     measures: [measurable]
   data_schema:
     schema: schemas/Kpi.json
-    digest: sha256:6d3b24df285968940f04499f3d039cbe284659ce9830da387458ea0bdd2e1545
+    digest: sha256:ec55d568531d1027f9b370f88875fdbb31f3839bc5423526539dbfd8294b91b8
   body_extraction:
     yield_pattern:
       match:

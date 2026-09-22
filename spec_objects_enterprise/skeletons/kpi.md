@@ -42,7 +42,7 @@ delivery promises in the affected region.
 | delivered_within_promise | Decimal(5,2) [%] | 1..1 | min: 0, max: 100 |
 | delivered_order_count | Integer [1] | 1..1 | min: 0 |
 | evaluation_window | Duration [d] | 1..1 | |
-| measured_capability | OrderFulfillment | 0..* | |
+| measured_capability | OrderFulfillment | 0..* unique | |
 
 ## Invariants
 

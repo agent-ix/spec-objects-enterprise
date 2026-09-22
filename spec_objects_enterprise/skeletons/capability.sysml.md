@@ -20,8 +20,8 @@ promised window.
 attribute capability_id : UUID[1..1] { identity }
 attribute name : String[1..1] { minLength: 1, maxLength: 120 }
 attribute scope_statement : String[1..1] { minLength: 1 }
-ref item realizing_function : SupplyChainManagement[0..*]
-ref item governing_principle : PromiseFromLiveCapacity[0..*]
+ref item realizing_function : SupplyChainManagement[0..* unique]
+ref item governing_principle : PromiseFromLiveCapacity[0..* unique]
 ```
 
 ## Sub-capabilities

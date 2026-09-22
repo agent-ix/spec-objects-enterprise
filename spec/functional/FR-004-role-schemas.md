@@ -21,7 +21,7 @@ and a metric definition is refused where a metric reading is authored.
 
 ## Inputs
 
-- semantic-core 0.1.0 grammar models: `FieldDecl`, `TypeRef`, `RelationDecl`,
+- semantic-core 0.3.0 grammar models: `FieldDecl`, `TypeRef`, `RelationDecl`,
   `OperationDecl`, `ClauseRef`, `EdgeCategory`, `Identifier`, `SemanticId`,
   `KernelScalar`, `UnitSymbol`.
 - The declaration record Quire assembles per artifact: `fields` from
@@ -48,7 +48,7 @@ and a metric definition is refused where a metric reading is authored.
 Each model SHALL enforce its row of the following table. "Identity field"
 means a `FieldDecl` with `identity: true`; "temporal field" a `FieldDecl` whose
 `type.target` is `Timestamp`; "measured field" a `FieldDecl` whose `type.unit`
-is present. All three readings are semantic-core 0.1.0 reader conventions (the
+is present. All three readings are semantic-core 0.3.0 reader conventions (the
 identity flag is set only by a bare `identity` keyword in a Constraints cell
 and is absent, not `false`, otherwise; the kernel scalar is the bare token
 `Timestamp`; the unit is the trailing ` [symbol]` of a `Type` cell on a
@@ -85,7 +85,7 @@ admitted: a composite key is a legitimate declaration and no rule forbids it.
 - `OwnershipDecl` SHALL declare no role name, no score, and no rating, because the organizational role vocabulary is corpus-review evidence this requirement does not anticipate.
 - `ProvenanceDecl` SHALL be `{ source: SemanticId, method?: string, recorded_in?: SemanticId }`.
 - The TypeSpec source SHALL narrow each object type's `relations[].verb` to that type's relation-verb enum, whose members equal the type's manifest `allowed_links` keys (FR-003-AC-7): `CapabilityVerb` = `decomposes`, `realizes`, `depends_on`, `references`; `BusinessFunctionVerb` = `supports`, `realizes`, `references`; `ValueStreamVerb` = `contains`; `DecisionVerb` = `references`, `supersedes`, `constrains`; `ObjectiveVerb` = `supports`, `references`; `PrincipleVerb` = `governs`; `KpiVerb` = `measures`.
-- Each model SHALL validate every `fields`, `params`, `clauses`, `operations`, and `relations` item by `$ref` to the semantic-core 0.1.0 model, never by a copied definition.
+- Each model SHALL validate every `fields`, `params`, `clauses`, `operations`, and `relations` item by `$ref` to the semantic-core 0.3.0 model, never by a copied definition.
 - The TypeSpec source SHALL apply the verb narrowing over that `$ref` without redeclaring `RelationDecl`.
 - The TypeSpec source SHALL express the item rules through the official emitter's decorators over open marker models: `@contains(IdentityField)` for "≥ 1 identity field", `@contains(IdentityField) @minContains(0) @maxContains(0)` for "0 identity fields", and, because JSON Schema admits one `contains` per array, the temporal and measured rules as `@extension("allOf", …)` clauses whose `contains` references `TemporalField.json` and `MeasuredField.json`; the generator normalizes those relative `$ref`s per FR-002.
 - Every cross-reference a declaration makes (`type.target`, `RelationDecl.target`, `inputs`, `outputs`, `TargetDecl.measure`, `StageDecl.inputs`/`outputs`, `LifecycleDecl.superseded_by`, `OwnershipDecl.owner`/`steward`, `ProvenanceDecl.source`/`recorded_in`) SHALL be a `SemanticId` or `KernelScalar` per semantic-core, so a bare token is rejected by the schema; resolution against the bundle, and the placeholder `ix://<org>/<repo>/unresolved/<Token>` with its `semantic.unresolved-type` finding, exist today for `type.target` only (quire-rs FR-070) and for the other keys once `agent-ix/quoin#335` publishes their mapping.

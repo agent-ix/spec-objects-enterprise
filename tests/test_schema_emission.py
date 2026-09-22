@@ -129,7 +129,7 @@ def test_every_ref_resolves_to_a_shipped_sibling_or_semantic_core():
         else:
             # Not a prefix check: the generator falls back to the semantic-core
             # base for any relative `$ref` it does not recognise as a sibling,
-            # so a dangling `.../semantic-core/0.1.0/Nonexistent.json` would
+            # so a dangling `.../semantic-core/0.3.0/Nonexistent.json` would
             # carry the right prefix and resolve to nothing. Each one is
             # resolved against the package the pinned toolchain installs.
             assert ref.startswith(SEMANTIC_CORE_BASE), f"{owner} references {ref}"
@@ -246,7 +246,7 @@ def test_no_npmrc_no_local_dependency_and_exact_toolchain_pins():
     dev = package["devDependencies"]
     assert dev["@typespec/compiler"] == "1.15.0"
     assert dev["@typespec/json-schema"] == "1.15.0"
-    assert dev["@agent-ix/semantic-core"] == "0.1.0"
+    assert dev["@agent-ix/semantic-core"] == "0.3.0"
     assert "dependencies" not in package or not package["dependencies"]
     for section in ("dependencies", "devDependencies"):
         for name, spec in (package.get(section) or {}).items():
@@ -256,13 +256,19 @@ def test_no_npmrc_no_local_dependency_and_exact_toolchain_pins():
 
 @pytest.mark.trace("TC-019", "FR-002-CON-4")
 def test_the_lockfile_resolves_public_packages_from_npmjs():
+    # `@agent-ix/semantic-core` is the one scoped exception: 0.1.0/0.2.0 never
+    # left the private dev-only npm.ix mirror, but 0.3.0 is the first real
+    # version published to GitHub Packages (CI-reachable), so the lockfile
+    # SHALL resolve it from there rather than from npm.ix.
     lock = json.loads((REPO_ROOT / "package-lock.json").read_text())
     for path, entry in lock["packages"].items():
         resolved = entry.get("resolved")
         if not resolved:
             continue
         if path.endswith("@agent-ix/semantic-core"):
-            assert "npm.ix" in resolved, resolved
+            assert resolved.startswith(
+                "https://npm.pkg.github.com/"
+            ), f"{path} -> {resolved}"
         else:
             assert resolved.startswith(
                 "https://registry.npmjs.org/"

@@ -30,8 +30,8 @@ carrier systems and is owned by the Fulfillment Platform group.
 | capability_id | UUID | 1..1 | identity |
 | name | String | 1..1 | minLength: 1, maxLength: 120 |
 | scope_statement | String | 1..1 | minLength: 1 |
-| realizing_function | SupplyChainManagement | 0..* | |
-| governing_principle | PromiseFromLiveCapacity | 0..* | |
+| realizing_function | SupplyChainManagement | 0..* unique | |
+| governing_principle | PromiseFromLiveCapacity | 0..* unique | |
 
 ## Sub-capabilities
 

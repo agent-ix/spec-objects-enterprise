@@ -22,7 +22,7 @@ delivery falls within the delivery window promised at checkout.
 attribute delivered_within_promise : Decimal(5,2) [%][1..1] { min: 0, max: 100 }
 attribute delivered_order_count : Integer [1][1..1] { min: 0 }
 attribute evaluation_window : Duration [d][1..1]
-ref item measured_capability : OrderFulfillment[0..*]
+ref item measured_capability : OrderFulfillment[0..* unique]
 ```
 
 ## Invariants

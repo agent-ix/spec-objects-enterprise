@@ -23,7 +23,7 @@ object: decision
 |---|---|---|---|
 | decision_id | UUID | 1..1 | identity |
 | status | String | 1..1 | enumValues: proposed\|accepted\|superseded |
-| constrained_capability | OrderFulfillment | 0..* | |
+| constrained_capability | OrderFulfillment | 0..* unique | |
 
 ## Decision
 

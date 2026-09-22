@@ -26,10 +26,32 @@ def field(
     identity: bool = False,
     unit: str | None = None,
     decimal: tuple[int, int] | None = None,
+    ordered: bool | None = None,
+    unique: bool | None = None,
 ) -> dict[str, Any]:
+    # Multiplicity.json (semantic-core 0.3.0) requires `ordered`/`unique`; its
+    # own description states the producer contract: clamp both `false` when
+    # `upper` is at most one (singular — meaningless there, no functionality
+    # lost). Every builder below is singular, so this branch is the only one
+    # exercised today; a future collection field must pass both explicitly
+    # rather than inherit an unevidenced default.
+    singular = upper is not None and upper <= 1
+    if singular:
+        if ordered is not None or unique is not None:
+            raise ValueError(
+                "ordered/unique are not admitted on a singular multiplicity"
+            )
+        ordered, unique = False, False
+    elif ordered is None or unique is None:
+        raise ValueError(
+            "a collection multiplicity (upper absent or > 1) needs explicit "
+            "ordered/unique — there is no defensible silent default"
+        )
     multiplicity: dict[str, Any] = {"lower": lower}
     if upper is not None:
         multiplicity["upper"] = upper
+    multiplicity["ordered"] = ordered
+    multiplicity["unique"] = unique
     type_ref: dict[str, Any] = {"target": target, "multiplicity": multiplicity}
     if unit is not None:
         type_ref["unit"] = unit
