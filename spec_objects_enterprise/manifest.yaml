@@ -39,7 +39,6 @@ object_types:
     references: [principle]
   data_schema:
     schema: schemas/Capability.json
-    digest: sha256:c63c2e2cbcc5a4ef1442892d983c4eadddcf5dc0a8aa0cdc8df206d7ed4948d0
   body_extraction:
     yield_pattern:
       match:
@@ -78,7 +77,6 @@ object_types:
     references: [business_function]
   data_schema:
     schema: schemas/BusinessFunction.json
-    digest: sha256:7ae950486e794b8980d30d91cb3c6a1b59023194bada3c08c514b339a9b961ef
   body_extraction:
     yield_pattern:
       match:
@@ -107,7 +105,6 @@ object_types:
     contains: [business_function]
   data_schema:
     schema: schemas/ValueStream.json
-    digest: sha256:5934819cf43d26b37cd4ec78b6a0f2279e94372c1d4703075742a0c66f3b46ad
   body_extraction:
     yield_pattern:
       match:
@@ -133,7 +130,6 @@ object_types:
     constrains: [capability]
   data_schema:
     schema: schemas/Decision.json
-    digest: sha256:8516aa9703005c9fd7894c952c6ce66685e0706cf90592ae069b510d66fc7da1
   body_extraction:
     yield_pattern:
       match:
@@ -159,7 +155,6 @@ object_types:
     references: [kpi, capability]
   data_schema:
     schema: schemas/Objective.json
-    digest: sha256:28f580b6ce7888ee8c64d73cd168180114c5722b248d91cebdfd0b60a9f48932
   body_extraction:
     yield_pattern:
       match:
@@ -194,7 +189,6 @@ object_types:
     governs: ["*"]
   data_schema:
     schema: schemas/Principle.json
-    digest: sha256:39f1280d37c65abd9e42d24f34abd7171b81bf03e81308638b9b899b1af2a11d
   body_extraction:
     yield_pattern:
       match:
@@ -214,7 +208,6 @@ object_types:
     measures: [measurable]
   data_schema:
     schema: schemas/Kpi.json
-    digest: sha256:ec55d568531d1027f9b370f88875fdbb31f3839bc5423526539dbfd8294b91b8
   body_extraction:
     yield_pattern:
       match:
