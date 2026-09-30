@@ -50,8 +50,7 @@ quire validate spec/**/*.md --module node_modules/@agent-ix/spec-objects-enterpr
 
 Every object type ships a real JSON Schema 2020-12 declaration record under
 `spec_objects_enterprise/schemas/`, emitted from `typespec/main.tsp` against
-`@agent-ix/semantic-core` 0.3.0 and referenced from `manifest.yaml` by path and
-SHA-256 digest. The skeletons author their declarations in the typed
+`@agent-ix/semantic-core` 0.3.0 and referenced from `manifest.yaml` by path. The skeletons author their declarations in the typed
 `## Properties` table (or the equivalent ```sysml``` fence), with clauses as
 ```ocl``` fences under `## Invariants`.
 
@@ -64,7 +63,7 @@ objective is its mirror: time-bound, and referencing a KPI definition through
 its `targets` rather than declaring a measure of its own.
 
 ```bash
-make schemas        # re-emit schemas/ and the manifest digests from typespec/
+make schemas        # re-emit schemas/ from typespec/
 make schemas-check  # fail on any drift (also run by `make lint`)
 poetry install       # installs the Quire wheel the semantic tests need
 ```
