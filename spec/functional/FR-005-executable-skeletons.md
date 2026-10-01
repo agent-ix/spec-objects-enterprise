@@ -68,13 +68,12 @@ executable positive fixtures and the negatives pin what the schemas refuse.
 - Each negative fixture SHALL fail `validate_document` with an error whose message carries the fixture's `expect:` code, covering at least: a KPI carrying a `Timestamp` row (`semantic.record-invalid`), a KPI carrying an identity row (`semantic.record-invalid`), a KPI whose rows carry no unit (`semantic.record-invalid`), an objective without a `Timestamp` row (`semantic.record-invalid`), a principle with a `## Properties` table (`semantic.record-invalid`), a capability without an identity row (`semantic.record-invalid`), a business function whose `## Operations` declares no operation (`semantic.record-invalid`), a `## Properties` section carrying both a table and a fence (`semantic.properties-both-forms`), an operation whose `Post:` names an undeclared clause (`semantic.dangling-clause-ref`), and a `Type` token that is not an `Identifier` (`semantic.invalid-type-token`); the last three re-check the engine's published diagnostics under this module's schemas rather than re-specify them.
 - The module SHALL declare `quire` in `pyproject.toml` as a dev dependency pinned to the `internal-pypi` source, so `poetry install` provisions the engine and no lookup falls through to public PyPI, where `quire` names an unrelated package.
 - If the installed Quire wheel is absent or lacks `extract_semantic`, then every semantic test SHALL fail — not skip — with a message naming the missing function and `poetry install`, so that no matrix row can pass or be reported green without the engine under test.
-- Only a criterion this specification names as blocked SHALL be exempt from the previous rule, as an explicit expected failure naming the blocking issue. Today that is the record validation of a legacy-form artifact declaring `object:` (`agent-ix/quire-rs#391`, beside NFR-001-AC-2) and the naming half of FR-003-AC-6 (`agent-ix/quire-rs#221`, `agent-ix/quire-rs#394`).
+- Only a criterion this specification names as blocked SHALL be exempt from the previous rule, as an explicit expected failure naming the blocking issue. Today that is the naming half of FR-003-AC-6 (`agent-ix/quire-rs#221`, `agent-ix/quire-rs#394`).
 
 ## Constraints
 
 | ID | Constraint | Type | Validation |
 |----|------------|------|------------|
-| FR-005-CON-1 | The module SHALL keep the skeletons and negatives in this repository only, editing no corpus repository and no vendored quoin/quire fixture. | Boundary | Inspection |
 | FR-005-CON-2 | A skeleton SHALL carry one Properties form; the alternate form is a separate file, never a second block in the same artifact. | Integrity | Test |
 | FR-005-CON-3 | No skeleton SHALL author a field, clause, or prose line that scores or rates an organizational unit or a person. | Boundary | Inspection |
 

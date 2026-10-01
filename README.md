@@ -50,7 +50,8 @@ quire validate spec/**/*.md --module node_modules/@agent-ix/spec-objects-enterpr
 
 Every object type ships a real JSON Schema 2020-12 declaration record under
 `spec_objects_enterprise/schemas/`, emitted from `typespec/main.tsp` against
-`@agent-ix/semantic-core` 0.3.0 and referenced from `manifest.yaml` by path. The skeletons author their declarations in the typed
+`@agent-ix/semantic-core` and referenced from `manifest.yaml` by path. The
+skeletons author their declarations in the typed
 `## Properties` table (or the equivalent ```sysml``` fence), with clauses as
 ```ocl``` fences under `## Invariants`.
 

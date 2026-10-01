@@ -27,7 +27,6 @@ MANIFEST_PATH = PACKAGE_ROOT / "manifest.yaml"
 SCHEMAS_DIR = PACKAGE_ROOT / "schemas"
 SKELETONS_DIR = PACKAGE_ROOT / "skeletons"
 NEGATIVE_DIR = REPO_ROOT / "tests" / "fixtures" / "negative"
-BASELINE_DIR = REPO_ROOT / "tests" / "fixtures" / "baseline-0.1.0"
 SEMANTIC_CORE_DIR = (
     REPO_ROOT
     / "node_modules"
@@ -37,7 +36,10 @@ SEMANTIC_CORE_DIR = (
     / "json-schema"
 )
 
-SEMANTIC_CORE_BASE = "https://schemas.agent-ix.org/semantic-core/0.3.0/"
+SEMANTIC_CORE_BASE = (
+    "https://schemas.agent-ix.org/semantic-core/"
+    f"{yaml.safe_load(MANIFEST_PATH.read_text())['semantic']['semantic_core']}/"
+)
 
 QUIRE_MISSING = (
     "the Quire wheel exposing `extract_semantic` is not installed in this "
