@@ -4,7 +4,7 @@ version: 0.2.0
 description: 'Filament Module: tier-2 enterprise-architecture ObjectTypes (capability, business_function, value_stream, decision, objective, principle, kpi)'
 semantic:
   contract_version: 1.0.0
-  semantic_core: 0.3.0
+  semantic_core: 0.3.2
   package: agent-ix/spec-objects-enterprise
   exports:
   - capability
