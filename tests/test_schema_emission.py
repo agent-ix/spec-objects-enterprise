@@ -276,5 +276,3 @@ def test_schemas_check_names_a_stale_committed_schema_and_writes_nothing(tmp_pat
     assert (
         tree / "spec_objects_enterprise" / "manifest.yaml"
     ).read_bytes() == manifest_before
-
-
