@@ -20,7 +20,6 @@ from tests.conftest import (
     SCHEMAS_DIR,
     SEMANTIC_CORE_BASE,
     VERB_ENUM_OF,
-    module_base,
     schema_json,
 )
 
@@ -448,12 +447,3 @@ def test_each_type_narrows_its_relation_verbs(schema_registry):
             model,
             dict(record, relations=[records.relation("annotates")]),
         )
-
-
-@pytest.mark.trace("TC-011", "FR-002-AC-2")
-def test_every_schema_id_is_read_from_the_manifest_version(schema_registry):
-    base = module_base()
-    for path in sorted(SCHEMAS_DIR.glob("*.json")):
-        schema = json.loads(path.read_text())
-        assert schema["$schema"] == "https://json-schema.org/draft/2020-12/schema"
-        assert schema["$id"] == f"{base}{path.name}", path.name

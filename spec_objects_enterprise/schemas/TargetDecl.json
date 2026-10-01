@@ -1,13 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/TargetDecl.json",
+  "$id": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/TargetDecl.json",
   "type": "object",
   "properties": {
     "measure": {
       "$ref": "https://schemas.agent-ix.org/semantic-core/0.3.0/SemanticId.json"
     },
     "comparator": {
-      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/Comparator.json"
+      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/Comparator.json"
     },
     "bound": {
       "type": "string"

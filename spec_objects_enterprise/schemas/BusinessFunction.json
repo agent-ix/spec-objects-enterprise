@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/BusinessFunction.json",
+  "$id": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/BusinessFunction.json",
   "type": "object",
   "properties": {
     "fields": {
@@ -10,7 +10,7 @@
       },
       "minItems": 1,
       "contains": {
-        "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/IdentityField.json"
+        "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/IdentityField.json"
       }
     },
     "operations": {
@@ -48,13 +48,13 @@
       }
     },
     "owner": {
-      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/OwnershipDecl.json"
+      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/OwnershipDecl.json"
     },
     "lifecycle": {
-      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/LifecycleDecl.json"
+      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/LifecycleDecl.json"
     },
     "provenance": {
-      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/ProvenanceDecl.json"
+      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/ProvenanceDecl.json"
     }
   },
   "required": [
@@ -72,7 +72,7 @@
           "items": {
             "properties": {
               "verb": {
-                "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/BusinessFunctionVerb.json"
+                "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/BusinessFunctionVerb.json"
               }
             }
           }

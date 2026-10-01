@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/Decision.json",
+  "$id": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/Decision.json",
   "type": "object",
   "properties": {
     "clauses": {
@@ -25,17 +25,17 @@
     "alternatives": {
       "type": "array",
       "items": {
-        "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/AlternativeDecl.json"
+        "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/AlternativeDecl.json"
       }
     },
     "owner": {
-      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/OwnershipDecl.json"
+      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/OwnershipDecl.json"
     },
     "lifecycle": {
-      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/LifecycleDecl.json"
+      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/LifecycleDecl.json"
     },
     "provenance": {
-      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/ProvenanceDecl.json"
+      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/ProvenanceDecl.json"
     }
   },
   "required": [
@@ -52,7 +52,7 @@
           "items": {
             "properties": {
               "verb": {
-                "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/DecisionVerb.json"
+                "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/DecisionVerb.json"
               }
             }
           }

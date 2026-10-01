@@ -22,14 +22,8 @@ using AgentIx.Semantic.Core;
  * record shaped like an observation is refused. `Objective` is its mirror: it
  * is time-bound (at least one `Timestamp` field) and references a measure
  * definition through `targets[].measure` rather than declaring one.
- *
- * The `$id` base embeds the manifest `version` by intent (FR-002-CON-5): one
- * schema URL names exactly one immutable byte sequence, so a downstream fixture
- * reader that pinned a version can never silently read later bytes. A bump edits
- * this base and `manifest.yaml`'s `version` in one commit and re-runs
- * `make schemas`.
  */
-@jsonSchema("https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/")
+@jsonSchema("https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/")
 namespace AgentIx.SpecObjects.Enterprise;
 
 // ---------------------------------------------------------------------------

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/Principle.json",
+  "$id": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/Principle.json",
   "type": "object",
   "properties": {
     "clauses": {
@@ -17,13 +17,13 @@
       }
     },
     "owner": {
-      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/OwnershipDecl.json"
+      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/OwnershipDecl.json"
     },
     "lifecycle": {
-      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/LifecycleDecl.json"
+      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/LifecycleDecl.json"
     },
     "provenance": {
-      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/ProvenanceDecl.json"
+      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/ProvenanceDecl.json"
     }
   },
   "required": [
@@ -40,7 +40,7 @@
           "items": {
             "properties": {
               "verb": {
-                "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/PrincipleVerb.json"
+                "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/PrincipleVerb.json"
               }
             }
           }

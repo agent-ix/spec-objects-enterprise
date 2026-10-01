@@ -1,10 +1,10 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/LifecycleDecl.json",
+  "$id": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/LifecycleDecl.json",
   "type": "object",
   "properties": {
     "state": {
-      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/LifecycleState.json"
+      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/LifecycleState.json"
     },
     "since": {
       "type": "string"
