@@ -120,8 +120,6 @@ def test_no_schema_declares_a_score_or_an_observation_property(schema_registry):
     """The ticket's safety gate: no management score, no trust score, and no key
     that would carry an observation rather than a declaration."""
     for path in sorted(SCHEMAS_DIR.glob("*.json")):
-        if path.name == "toolchain.json":
-            continue
         schema = json.loads(path.read_text())
         for name in schema.get("properties", {}):
             assert not any(token in name.lower() for token in SCORING_TOKENS), (
@@ -161,11 +159,7 @@ def test_grammar_items_are_refs_to_semantic_core(schema_registry):
                 continue
             assert set(relations["items"]) == {"properties"}, name
             assert set(relations["items"]["properties"]) == {"verb"}, name
-    emitted = {
-        path.stem
-        for path in SCHEMAS_DIR.glob("*.json")
-        if path.name != "toolchain.json"
-    }
+    emitted = {path.stem for path in SCHEMAS_DIR.glob("*.json")}
     semantic_core = {
         "FieldDecl",
         "TypeRef",
@@ -460,8 +454,6 @@ def test_each_type_narrows_its_relation_verbs(schema_registry):
 def test_every_schema_id_is_read_from_the_manifest_version(schema_registry):
     base = module_base()
     for path in sorted(SCHEMAS_DIR.glob("*.json")):
-        if path.name == "toolchain.json":
-            continue
         schema = json.loads(path.read_text())
         assert schema["$schema"] == "https://json-schema.org/draft/2020-12/schema"
         assert schema["$id"] == f"{base}{path.name}", path.name
