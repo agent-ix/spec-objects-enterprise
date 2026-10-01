@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/Kpi.json",
+  "$id": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/Kpi.json",
   "type": "object",
   "properties": {
     "fields": {
@@ -10,7 +10,7 @@
       },
       "minItems": 1,
       "contains": {
-        "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/IdentityField.json"
+        "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/IdentityField.json"
       },
       "minContains": 0,
       "maxContains": 0
@@ -28,22 +28,22 @@
       }
     },
     "measure": {
-      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/MeasureDecl.json"
+      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/MeasureDecl.json"
     },
     "thresholds": {
       "type": "array",
       "items": {
-        "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/ThresholdDecl.json"
+        "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/ThresholdDecl.json"
       }
     },
     "owner": {
-      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/OwnershipDecl.json"
+      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/OwnershipDecl.json"
     },
     "lifecycle": {
-      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/LifecycleDecl.json"
+      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/LifecycleDecl.json"
     },
     "provenance": {
-      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/ProvenanceDecl.json"
+      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/ProvenanceDecl.json"
     }
   },
   "required": [
@@ -58,7 +58,7 @@
       "properties": {
         "fields": {
           "contains": {
-            "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/MeasuredField.json"
+            "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/MeasuredField.json"
           },
           "minContains": 1
         }
@@ -68,7 +68,7 @@
       "properties": {
         "fields": {
           "contains": {
-            "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/TemporalField.json"
+            "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/TemporalField.json"
           },
           "minContains": 0,
           "maxContains": 0
@@ -81,7 +81,7 @@
           "items": {
             "properties": {
               "verb": {
-                "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/KpiVerb.json"
+                "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/KpiVerb.json"
               }
             }
           }

@@ -27,13 +27,12 @@ The system **SHALL** publish a Filament Module manifest (`spec_objects_enterpris
 
 ## Behavior
 
-The manifest **SHALL** validate against `module-manifest.schema.json` v1.0.0. Re-activation **SHALL** be a no-op (idempotent by content hash per FR-026-AC-1).
+Re-activation **SHALL** be a no-op (idempotent by content hash per FR-026-AC-1).
 
 ## Acceptance Criteria
 
 | ID | Criteria | Verification |
 |----|----------|--------------|
-| FR-001-AC-1 | Manifest validates against FR-035 JSON Schema | Test |
 | FR-001-AC-2 | Activation against clean filament-core succeeds with 200 | Test |
 | FR-001-AC-3 | Re-activation returns no-op (same content hash) | Test |
 | FR-001-AC-4 | Each declared archetype/object_type/artifact_type appears in the corresponding filament-core table after activation | Test |

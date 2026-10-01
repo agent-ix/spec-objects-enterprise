@@ -43,13 +43,12 @@ them, while every existing extraction locator keeps its meaning.
 - `semantic.exports` SHALL name all seven object types: `capability`, `business_function`, `value_stream`, `decision`, `objective`, `principle`, `kpi`.
 - Every exported object type's `data_schema` SHALL be `{ schema: schemas/<Model>.json }`.
 - No exported object type SHALL carry an inline `data_schema`.
-- The manifest `version` SHALL be `0.2.0`, because the emitted `$id` embeds it and the previous version was `0.1.0`.
 - Every `body_extraction` locator present at version 0.1.0 SHALL remain present with the same `from`, `path`, heading, `language`, `required`, `multiple`, and `assert` facets.
 - The frontmatter `metric` and `target` locators on `objective` and `kpi` SHALL stay in place, so the untyped prose strings continue to be yielded beside the semantic record; the typed record is the authority and those strings are a derived, human-facing view.
 - Where an object type gains a locator after 0.1.0, that locator SHALL be `required: false`, so existing artifacts stay valid (the additions themselves are specified by FR-005).
 - Every object type's `allowed_links` key set SHALL equal the verb set its emitted schema admits in `relations[].verb`, so the manifest's edge vocabulary and the schema's relation vocabulary cannot drift apart.
 - The manifest SHALL load through Quire's registry loader with no `ArchetypeLoadFailure` for any object type.
-- Measured against quire 0.47.1: a refused schema drops that object type alone, while a manifest key the loader cannot parse (an unknown `semantic` key) drops every object type of the module, so a consumer sees the module as absent. Both refusals are silent — no diagnostic names the offending key or path — which `agent-ix/quire-rs#221` records as an engine defect; the naming half of FR-003-AC-6 is blocked on them and is verified as an explicit expected failure rather than dropped.
+- A refused schema drops that object type alone, while a manifest key the loader cannot parse (an unknown `semantic` key) drops every object type of the module, so a consumer sees the module as absent. Both refusals are silent — no diagnostic names the offending key or path — which `agent-ix/quire-rs#221` records as an engine defect; the naming half of FR-003-AC-6 is blocked on them and is verified as an explicit expected failure rather than dropped.
 - The manifest SHALL install through `quoin module install path:<module dir>` with no `semantic.*` error diagnostic.
 - When the install has completed, `quoin module` SHALL list `spec-objects-enterprise`.
 - If Quoin or Quire rejects the manifest, then this module SHALL correct its own manifest or schemas rather than relax the contract keys or the `$id` rules to make a consumer accept them.

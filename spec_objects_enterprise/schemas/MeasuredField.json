@@ -1,10 +1,10 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/MeasuredField.json",
+  "$id": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/MeasuredField.json",
   "type": "object",
   "properties": {
     "type": {
-      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/MeasuredTypeRef.json"
+      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/MeasuredTypeRef.json"
     }
   },
   "required": [

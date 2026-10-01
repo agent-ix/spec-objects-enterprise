@@ -1,10 +1,10 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/TemporalField.json",
+  "$id": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/TemporalField.json",
   "type": "object",
   "properties": {
     "type": {
-      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/TemporalTypeRef.json"
+      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/TemporalTypeRef.json"
     }
   },
   "required": [

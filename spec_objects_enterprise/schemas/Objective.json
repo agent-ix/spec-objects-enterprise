@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/Objective.json",
+  "$id": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/Objective.json",
   "type": "object",
   "properties": {
     "fields": {
@@ -10,7 +10,7 @@
       },
       "minItems": 1,
       "contains": {
-        "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/IdentityField.json"
+        "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/IdentityField.json"
       }
     },
     "clauses": {
@@ -29,17 +29,17 @@
     "targets": {
       "type": "array",
       "items": {
-        "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/TargetDecl.json"
+        "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/TargetDecl.json"
       }
     },
     "owner": {
-      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/OwnershipDecl.json"
+      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/OwnershipDecl.json"
     },
     "lifecycle": {
-      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/LifecycleDecl.json"
+      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/LifecycleDecl.json"
     },
     "provenance": {
-      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/ProvenanceDecl.json"
+      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/ProvenanceDecl.json"
     }
   },
   "required": [
@@ -55,7 +55,7 @@
       "properties": {
         "fields": {
           "contains": {
-            "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/TemporalField.json"
+            "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/TemporalField.json"
           },
           "minContains": 1
         }
@@ -67,7 +67,7 @@
           "items": {
             "properties": {
               "verb": {
-                "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/ObjectiveVerb.json"
+                "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/ObjectiveVerb.json"
               }
             }
           }

@@ -1,13 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/ThresholdDecl.json",
+  "$id": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/ThresholdDecl.json",
   "type": "object",
   "properties": {
     "level": {
-      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/ThresholdLevel.json"
+      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/ThresholdLevel.json"
     },
     "comparator": {
-      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/Comparator.json"
+      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/Comparator.json"
     },
     "bound": {
       "type": "string"

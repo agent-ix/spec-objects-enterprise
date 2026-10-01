@@ -55,8 +55,8 @@ cannot provision (a running `filament-core-service`, a Quoin built from main).
 
 | Functional Req | Acceptance Criteria | Test Cases | Coverage Status |
 |---|---|---|---|
-| FR-001 | FR-001-AC-1..4 | TC-001..TC-004 | 🚧 AC-2..AC-4 need a running filament-core |
-| FR-002 | FR-002-AC-2..9, FR-002-CON-1..5 | TC-011..TC-019, TC-071..TC-074 | ✅ |
+| FR-001 | FR-001-AC-2..4 | TC-002..TC-004 | 🚧 AC-2..AC-4 need a running filament-core |
+| FR-002 | FR-002-AC-2..4, FR-002-AC-6, FR-002-AC-7, FR-002-AC-9, FR-002-CON-1..4 | TC-011..TC-013, TC-015..TC-019, TC-071, TC-073 | ✅ |
 | FR-003 | FR-003-AC-1..7, FR-003-CON-1..2 | TC-020..TC-028 | ✅ AC-5 is a Demonstration; AC-6's naming half is an expected failure |
 | FR-004 | FR-004-AC-1..14, FR-004-CON-1..3 | TC-030..TC-043 | ✅ |
 | FR-005 | FR-005-AC-1..9, FR-005-CON-1..3 | TC-050..TC-059, TC-064, TC-065 | ✅ |
@@ -78,16 +78,14 @@ cannot provision (a running `filament-core-service`, a Quoin built from main).
 
 | Test ID | Title | Type | Priority | Traces To | Status |
 |---|---|---|---|---|---|
-| TC-001 | Manifest validates against the vendored FR-035 module-manifest schema through `quire.validate_manifest` | Unit | P0 | FR-001-AC-1 | ✅ |
 | TC-002 | Activation against a clean filament-core returns 200 | Integration | P1 | FR-001-AC-2, IT-001-SC-02 | 🚧 needs a running filament-core |
 | TC-003 | Re-activation is a content-hash no-op | Integration | P1 | FR-001-AC-3, IT-001-SC-04 | 🚧 needs a running filament-core |
 | TC-004 | Every declared contribution appears in the registry tables | Integration | P1 | FR-001-AC-4, IT-001-SC-01, IT-001-SC-03 | 🚧 needs a running filament-core |
 | TC-005 | Module activation registers the declared contents | Demonstration | P2 | StR-001-VC-1 | 🚧 needs a running filament-core |
 | TC-006 | Generators produce valid artifacts from the shipped skeletons and schemas | Manual | P2 | StR-001-VC-2 | 🚧 needs a generator run against a running filament-core |
-| TC-011 | Every shipped schema declares the 2020-12 `$schema` and the `$id` matching its file name under the manifest-version base | Unit | P0 | FR-002-AC-2 | ✅ |
+| TC-011 | Every shipped schema declares the 2020-12 `$schema` and the `$id` matching its file name | Unit | P0 | FR-002-AC-2 | ✅ |
 | TC-012 | Every `$ref` resolves to a shipped sibling or semantic-core 0.3.0 | Unit | P0 | FR-002-AC-3 | ✅ |
 | TC-013 | `make schemas-check` exits zero on the committed tree and non-zero naming a mutated schema | Integration | P1 | FR-002-AC-4 | ✅ |
-| TC-014 | A `@jsonSchema` base version differing from the manifest version fails the generator naming both | Integration | P1 | FR-002-AC-5 | ✅ |
 | TC-015 | The built wheel contains every emitted schema file | Integration | P1 | FR-002-AC-6 | ✅ |
 | TC-016 | Two generator runs over one source are byte-identical | Integration | P1 | FR-002-CON-3 | ✅ |
 | TC-017 | The build uses the official `@typespec/json-schema` emitter only and no emitted file is hand-edited | Inspection | P2 | FR-002-CON-1 | ✅ |
@@ -132,11 +130,9 @@ cannot provision (a running `filament-core-service`, a Quoin built from main).
 | TC-063 | Each 0.1.0 skeleton's required-heading and frontmatter yields are identical under 0.1.0 and 0.2.0 | Integration | P1 | NFR-001-AC-4 | ✅ |
 | TC-064 | The extracted KPI record carries a unit, no identity and no `Timestamp`; the extracted objective record carries an identity and a `Timestamp` | Integration | P0 | FR-005-AC-9 | ✅ |
 | TC-065 | No skeleton authors a field, clause, or prose line scoring or rating an organizational unit or a person | Inspection | P2 | FR-005-CON-3 | ✅ |
-| TC-070 | Quoin install roundtrip with state restore | Manual | P1 | IT-002-SC-01..IT-002-SC-06, FR-003-AC-5 | 🚧 needs a Quoin built from quoin main ≥ `3e842ce` (no release carries it) |
+| TC-070 | Quoin install roundtrip with state restore | Manual | P1 | IT-002-SC-01..IT-002-SC-06, FR-003-AC-5 | 🚧 needs a Quoin built from quoin main (no release carries it) |
 | TC-071 | The packed npm tarball contains `manifest.yaml` and a sibling `schemas/<Model>.json` per export, and the staged copies are removed afterwards | Integration | P1 | FR-002-AC-7 | ✅ |
-| TC-072 | A coordinated version bump re-emits every `$id`/`$ref` at the new version; bumping one half of the pair fails the check | Integration | P1 | FR-002-AC-8, FR-002-CON-5 | ✅ |
 | TC-073 | `make schemas-check` names a stale committed schema with no emitted counterpart and writes nothing | Integration | P1 | FR-002-AC-9 | ✅ |
-| TC-074 | No acceptance test hard-codes the `$id` version segment; each reads it from the manifest `version` | Unit | P2 | FR-002-CON-5 | ✅ |
 | TC-075 | Every object type ships a typed schema a fixture reader can consume; a capability, a KPI definition, and an observation-shaped record are distinguishable by schema alone | Demonstration | P2 | StR-001-VC-3 | ✅ |
 
 ## Test Environment

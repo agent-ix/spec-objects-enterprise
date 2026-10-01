@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/MeasureDecl.json",
+  "$id": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/MeasureDecl.json",
   "type": "object",
   "properties": {
     "name": {
@@ -10,10 +10,10 @@
       "$ref": "https://schemas.agent-ix.org/semantic-core/0.3.0/UnitSymbol.json"
     },
     "aggregation": {
-      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/AggregationKind.json"
+      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/AggregationKind.json"
     },
     "direction": {
-      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/0.2.0/Direction.json"
+      "$ref": "https://schemas.agent-ix.org/agent-ix/spec-objects-enterprise/Direction.json"
     },
     "window": {
       "type": "string"
