@@ -103,9 +103,9 @@ def test_every_ref_resolves_to_a_shipped_sibling_or_semantic_core():
         else:
             # Not a prefix check: the generator falls back to the semantic-core
             # base for any relative `$ref` it does not recognise as a sibling,
-            # so a dangling `.../semantic-core/0.3.0/Nonexistent.json` would
+            # so a dangling `.../semantic-core/<version>/Nonexistent.json` would
             # carry the right prefix and resolve to nothing. Each one is
-            # resolved against the package the pinned toolchain installs.
+            # resolved against the package the toolchain installs.
             assert ref.startswith(SEMANTIC_CORE_BASE), f"{owner} references {ref}"
             target = SEMANTIC_CORE_DIR / ref[len(SEMANTIC_CORE_BASE) :]
             assert target.is_file(), f"{owner} references a missing {ref}"
@@ -199,10 +199,8 @@ def test_no_npmrc_and_no_local_dependency():
 
 @pytest.mark.trace("TC-019", "FR-002-CON-4")
 def test_the_lockfile_resolves_public_packages_from_npmjs():
-    # `@agent-ix/semantic-core` is the one scoped exception: 0.1.0/0.2.0 never
-    # left the private dev-only npm.ix mirror, but 0.3.0 is the first real
-    # version published to GitHub Packages (CI-reachable), so the lockfile
-    # SHALL resolve it from there rather than from npm.ix.
+    # `@agent-ix/semantic-core` is the one scoped exception: it is published to
+    # GitHub Packages, so the lockfile SHALL resolve it from there.
     lock = json.loads((REPO_ROOT / "package-lock.json").read_text())
     for path, entry in lock["packages"].items():
         resolved = entry.get("resolved")

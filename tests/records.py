@@ -29,7 +29,7 @@ def field(
     ordered: bool | None = None,
     unique: bool | None = None,
 ) -> dict[str, Any]:
-    # Multiplicity.json (semantic-core 0.3.0) requires `ordered`/`unique`; its
+    # Multiplicity.json requires `ordered`/`unique`; its
     # own description states the producer contract: clamp both `false` when
     # `upper` is at most one (singular — meaningless there, no functionality
     # lost). Every builder below is singular, so this branch is the only one

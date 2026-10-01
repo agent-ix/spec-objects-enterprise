@@ -48,7 +48,7 @@ the module delivers.
 - The Module manifest (`spec_objects_enterprise/manifest.yaml`) and its
   activation against filament-core-service.
 - The semantic-module contract (issue #4): a TypeSpec source importing
-  `@agent-ix/semantic-core` 0.3.0, the emitted JSON Schema per declared model
+  `@agent-ix/semantic-core`, the emitted JSON Schema per declared model
   shipped under `spec_objects_enterprise/schemas/`, the manifest `semantic`
   block with reference-form `data_schema`, and the skeletons rewritten as
   executable typed fixtures with negative counterparts.
@@ -88,12 +88,6 @@ the module delivers.
   manifest key empties the model silently).
   FR-003-AC-6's "naming the key or the path" half is blocked on it and is
   carried as an explicit expected failure.
-- Record validation of a legacy-form artifact that declares `object:`:
-  `agent-ix/quire-rs#391` (the engine validates an `unavailable` record as
-  `{}`, so a legacy form errors even under `legacy_forms: warning`).
-  NFR-001-AC-2 itself holds — no 0.1.0 artifact carries `object:` — and the
-  defect is carried as an explicit expected failure beside it rather than
-  worked around by relaxing a schema.
 - Resolving a reference-form `data_schema` into a stored snapshot at
   activation: `agent-ix/filament-core-service#23`. Until it lands the service
   stores the reference verbatim, which is what FR-001-AC-4 and IT-001-SC-03
@@ -128,8 +122,7 @@ against semantic-core (`usecase/`) to the functional requirements
 (`functional/`): FR-001 activates the manifest against `filament-core`; FR-002
 emits the schemas; FR-003 declares the semantic contract in the manifest;
 FR-004 fixes each type's role-distinct schema and the definition / measurement
-boundary; FR-005 makes the skeletons executable fixtures. NFR-001 bounds the
-change to additive compatibility. Integration tests in `integration/` verify
+boundary; FR-005 makes the skeletons executable fixtures. Integration tests in `integration/` verify
 the activation and Quoin-install boundaries; the third external boundary, the
 Quire engine (loader, extraction, record surface), has no IT artifact of its
 own — the FR-003 and FR-005 test harness is this module's Quire contract test,

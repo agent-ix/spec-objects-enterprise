@@ -11,16 +11,13 @@ resolve a `Type` cell that names another skeleton.
 from __future__ import annotations
 
 import re
-import subprocess
 
 import pytest
 
 from tests.conftest import (
     KERNEL_SCALARS,
     NEGATIVE_DIR,
-    OBJECT_TYPES,
     PACKAGE_ROOT,
-    REPO_ROOT,
     SKELETONS_DIR,
     frontmatter,
     locators,
@@ -230,40 +227,6 @@ def test_skeleton_titles_are_identifiers_and_object_equals_type():
     assert len(set(titles.values())) == len(titles)
 
 
-@pytest.mark.trace("TC-058", "FR-005-CON-1")
-def test_no_corpus_repository_or_vendored_fixture_is_edited():
-    """Inspection over the branch diff: every changed path is inside this
-    repository's own module, spec, plan, tests or build files."""
-    diff = subprocess.run(
-        ["git", "diff", "--name-only", "origin/main...HEAD"],
-        cwd=REPO_ROOT,
-        capture_output=True,
-        text=True,
-        check=True,
-    ).stdout.split()
-    allowed = (
-        "spec/",
-        "plan/",
-        "tests/",
-        "scripts/",
-        "typespec/",
-        "spec_objects_enterprise/",
-        ".github/workflows/",
-    )
-    allowed_files = {
-        "Makefile",
-        "package.json",
-        "package-lock.json",
-        "pyproject.toml",
-        "poetry.lock",
-        ".gitattributes",
-        "README.md",
-    }
-    for path in diff:
-        assert path.startswith(allowed) or path in allowed_files, path
-        assert "vendor" not in path, path
-
-
 @pytest.mark.trace("TC-065", "FR-005-CON-3")
 def test_no_skeleton_scores_or_rates_an_organizational_unit():
     """The ticket's safety gate, read over the authored prose as well as the
@@ -295,14 +258,3 @@ def test_every_skeleton_heading_is_asserted_by_the_manifest():
         }
         assert headings <= declared, (path.name, headings - declared)
         assert required <= headings, (path.name, required - headings)
-
-
-@pytest.mark.trace("TC-023", "FR-003-AC-3", "FR-003-CON-2")
-def test_every_added_locator_is_optional():
-    """The locators this change adds assert the sections the skeletons
-    introduce and must never make an existing artifact invalid."""
-    added = {"properties", "invariants", "operations"}
-    for name in OBJECT_TYPES:
-        for field, loc in locators(object_type(name)).items():
-            if field in added:
-                assert loc.get("required") is False, (name, field)

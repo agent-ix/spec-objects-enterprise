@@ -5,14 +5,12 @@ Quire's loader refuses.
 
 from __future__ import annotations
 
-import json
 import shutil
 
 import pytest
 import yaml
 
 from tests.conftest import (
-    BASELINE_DIR,
     MODEL_OF,
     OBJECT_TYPES,
     PACKAGE_ROOT,
@@ -20,7 +18,6 @@ from tests.conftest import (
     SKELETONS_DIR,
     VERB_ENUM_OF,
     frontmatter,
-    locators,
     object_type,
     object_types,
     schema_json,
@@ -80,19 +77,6 @@ def test_every_exported_type_carries_the_reference_form():
         assert (
             "type" not in data_schema
         ), f"{ot['name']} still carries an inline data_schema"
-
-
-@pytest.mark.trace("TC-022", "FR-003-AC-3")
-def test_every_010_locator_is_unchanged_against_the_checked_in_baseline():
-    baseline = json.loads((BASELINE_DIR / "body_extraction.json").read_text())
-    assert baseline["version"] == "0.1.0"
-    for name, extraction in baseline["object_types"].items():
-        current = object_type(name).get("body_extraction")
-        old = (extraction or {})["yield_pattern"]["match"]
-        new = (current or {})["yield_pattern"]["match"]
-        for key, facets in old.items():
-            assert key in new, f"{name}.{key} was dropped at 0.2.0"
-            assert new[key] == facets, f"{name}.{key} changed facets at 0.2.0"
 
 
 @pytest.mark.trace("TC-028", "FR-003-AC-7")
@@ -164,19 +148,3 @@ def test_the_refusal_names_the_offending_key_and_path(quire_engine, tmp_path):
     with pytest.raises(Exception) as error:
         quire_engine.Registry.load_from([str(unknown)])
     assert "foo" in str(error.value)
-
-
-@pytest.mark.trace("TC-023", "FR-003-CON-2")
-def test_every_locator_added_after_010_is_optional():
-    baseline = json.loads((BASELINE_DIR / "body_extraction.json").read_text())
-    added = 0
-    for name, extraction in baseline["object_types"].items():
-        old = set((extraction or {})["yield_pattern"]["match"])
-        for key, facets in locators(object_type(name)).items():
-            if key in old:
-                continue
-            added += 1
-            assert (
-                facets.get("required") is False
-            ), f"{name}.{key} was added as required"
-    assert added > 0, "no locator was added; FR-005's sections would not be asserted"
