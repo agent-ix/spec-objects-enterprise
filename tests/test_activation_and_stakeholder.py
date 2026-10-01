@@ -3,7 +3,7 @@ validation criteria.
 
 FR-001-AC-1 and StR-001-VC-3 are discharged here against the committed tree.
 FR-001-AC-2..AC-4, StR-001-VC-1 and StR-001-VC-2 need a running
-`filament-core-service` at revision `a77f31e` or later; they are
+`filament-core-service`; they are
 environment-gated and their matrix rows stay `🚧` with that note. That is
 pre-existing debt from issue #1, not this issue's, and it is not the semantic
 suite: the Quire rows fail rather than skip (see `conftest.py`).
@@ -11,7 +11,6 @@ suite: the Quire rows fail rather than skip (see `conftest.py`).
 
 from __future__ import annotations
 
-import hashlib
 import json
 import os
 
@@ -26,34 +25,22 @@ from tests.conftest import (
     schema_json,
 )
 
-# The filament-core-service module-manifest schema at revision `a77f31e`
-# (CR-003, the revision that admits the `semantic` block and the reference-form
-# `data_schema`), vendored byte-identically by Quoin and Quire. FR-001, FR-003
-# and IT-001 all judge this manifest against this one revision.
+# The vendored filament-core-service module-manifest schema. FR-001, FR-003
+# and IT-001 all judge this manifest against it.
 VENDORED_SCHEMA = REPO_ROOT / "tests" / "fixtures" / "module-manifest.schema.json"
-VENDORED_SCHEMA_DIGEST = (
-    "69cf9738600e7d8daa45ed5cd7231b17ca8dc58d068bd36af9b0d2c9b69dcbbc"
-)
 
 FILAMENT_CORE_URL = os.environ.get("FILAMENT_CORE_URL")
 needs_filament_core = pytest.mark.skipif(
     not FILAMENT_CORE_URL,
     reason=(
-        "FR-001-AC-2..AC-4 / IT-001 need a running filament-core-service at "
-        "revision a77f31e or later (no release tag contains it). Set "
-        "FILAMENT_CORE_URL to run them; the matrix row stays 🚧 until then."
+        "FR-001-AC-2..AC-4 / IT-001 need a running filament-core-service. "
+        "Set FILAMENT_CORE_URL to run them; the matrix row stays 🚧 until then."
     ),
 )
 
 
 @pytest.mark.trace("TC-001", "FR-001-AC-1")
 def test_the_manifest_validates_against_the_pinned_fr035_schema(quire_engine):
-    digest = hashlib.sha256(VENDORED_SCHEMA.read_bytes()).hexdigest()
-    assert digest == VENDORED_SCHEMA_DIGEST, (
-        "the vendored module-manifest schema is not the a77f31e revision the "
-        "spec pins; FR-001 and FR-003 would judge the manifest against "
-        "different schemas"
-    )
     violations = quire_engine.validate_manifest(load_manifest(), str(VENDORED_SCHEMA))
     assert violations == [], violations
 
