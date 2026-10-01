@@ -27,10 +27,9 @@ them, while every existing extraction locator keeps its meaning.
 ## Inputs
 
 - The emitted schemas of [FR-002](./FR-002-emitted-json-schemas.md).
-- The module-manifest schema with the `semantic` block, at
-  `agent-ix/filament-core-service` revision `a77f31e` (CR-003) — the revision
-  Quoin and Quire each vendor byte-identically (`sha256:69cf9738…`). All three
-  consumers therefore judge this manifest against one schema; a consumer
+- The module-manifest schema with the `semantic` block, which Quoin and Quire
+  each vendor byte-identically. All three consumers therefore judge this
+  manifest against one schema; a consumer
   vendoring an older copy is a skew defect on that consumer, not a change here.
 
 ## Outputs
