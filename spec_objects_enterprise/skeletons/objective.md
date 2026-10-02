@@ -11,8 +11,8 @@ deadline: "2026-12-31"
      body_extraction asserts):
      - Frontmatter MUST carry id, title, type: objective, object: objective,
        plus the prose fields `metric` and `target`; `deadline` is optional but
-       strongly recommended. Those three strings are the 0.1.0 human-facing
-       form and are kept unchanged; the typed record below is the authority.
+       strongly recommended. Those three strings are the human-facing
+       form; the typed record below is the authority.
      - "Properties" (H2): typed rows carrying one `identity` row and one
        `Timestamp` row — an objective is time-bound, and Objective.json
        requires that horizon.
