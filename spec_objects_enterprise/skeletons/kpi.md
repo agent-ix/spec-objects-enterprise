@@ -11,8 +11,8 @@ threshold: "Alert below 95% for two consecutive weeks"
      body_extraction asserts):
      - Frontmatter MUST carry id, title, type: kpi, object: kpi, plus the prose
        fields `metric` and `target`; `threshold` is optional but recommended.
-       Those strings are the 0.1.0 human-facing form and are kept unchanged;
-       the typed record below is the authority.
+       Those strings are the human-facing form; the typed record below is
+       the authority.
      - "Properties" (H2): typed rows declaring the MEASURE, not a reading of
        it. Kpi.json enforces three rules: at least one row carries a unit in
        its Type cell (`Decimal(5,2) [%]`, `Integer [1]`, `Duration [d]`), a
