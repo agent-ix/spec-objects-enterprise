@@ -112,3 +112,5 @@ make local-publish    # publish to local pypi.ix
 ```
 
 CI (GitHub Actions) runs tests and lint on push/PR, and on a `v*.*.*` tag builds with `poetry build` and publishes to Google Artifact Registry via `twine upload -r internal-pypi`. Versioning is dynamic from the Git tag. Required CI config: secret `GCP_SERVICE_ACCOUNT_KEY`; variables `GCP_REGION`, `GCP_PROJECT_NAME`, `GCP_PYPI`.
+
+<!-- STD-30 language-boundary canary: inert README change. -->
