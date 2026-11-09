@@ -38,7 +38,7 @@ Quire validates every declaration record against them.
 
 ## Behavior
 
-- The manifest `semantic` block SHALL carry exactly these keys and values: `contract_version: 1.0.0`, `semantic_core` (the declared semantic-core bundle this module extends), `package: agent-ix/spec-objects-enterprise`, `exports` listing every object type that ships a schema, `imports: {}`, `targets: [json-schema, markdown]`, `mappings: [typed-table, sysml-fence, ocl-clause]`, `compatibility_posture: additive`, `legacy_forms: warning`.
+- The manifest `semantic` block SHALL carry exactly these keys and values: `contract_version: 1.0.0`, `package: agent-ix/spec-objects-enterprise`, `exports` listing every object type that ships a schema, `imports: {}`, `targets: [json-schema, markdown]`, `mappings: [typed-table, sysml-fence, ocl-clause]`, `compatibility_posture: additive`, `legacy_forms: warning`.
 - `semantic.exports` SHALL name all seven object types: `capability`, `business_function`, `value_stream`, `decision`, `objective`, `principle`, `kpi`.
 - Every exported object type's `data_schema` SHALL be `{ schema: schemas/<Model>.json }`.
 - No exported object type SHALL carry an inline `data_schema`.
@@ -60,7 +60,7 @@ Quire validates every declaration record against them.
 
 | ID | Criteria | Verification |
 |----|----------|--------------|
-| FR-003-AC-1 | The loaded `semantic` block equals the nine admitted keys with the values above, and `exports` equals the seven object-type names. | Test |
+| FR-003-AC-1 | The loaded `semantic` block equals the eight admitted keys with the values above, and `exports` equals the seven object-type names. | Test |
 | FR-003-AC-2 | For every exported type, `data_schema` is the reference form, the referenced file exists. | Test |
 | FR-003-AC-4 | `quire.Registry.load_from([module dir])` lists all seven archetypes and `validate_document` on each skeleton reports no `semantic.*` load failure. | Test |
 | FR-003-AC-5 | `quoin module install path:<module dir>` exits zero and `quoin module` lists `spec-objects-enterprise`; the previously installed entry is restored afterwards. | Demonstration |

@@ -25,7 +25,6 @@ from tests.conftest import (
 
 ADMITTED_KEYS = {
     "contract_version",
-    "semantic_core",
     "package",
     "exports",
     "imports",
@@ -50,7 +49,7 @@ def module_copy(tmp_path, mutate=None):
 
 
 @pytest.mark.trace("TC-020", "FR-003-AC-1", "FR-003-CON-1")
-def test_the_semantic_block_carries_the_nine_admitted_keys_and_seven_exports(
+def test_the_semantic_block_carries_the_eight_admitted_keys_and_seven_exports(
     semantic_block,
 ):
     assert set(semantic_block) == ADMITTED_KEYS

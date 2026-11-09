@@ -41,7 +41,7 @@ one and any drift between source and shipped bytes fails the build.
 
 - `make schemas` SHALL run `node scripts/generate-schemas.mjs`.
 - The generator SHALL compile `typespec/` with `tsp compile`, keep only the emitted files whose `$id` starts with the module base, and discard the re-emitted semantic-core files.
-- If the emitter leaves any `$id` or `$ref` relative, then the generator SHALL rewrite it to `<base><file>` (module models) or `https://schemas.agent-ix.org/semantic-core/<version>/<file>` (semantic-core models), where `<version>` is the manifest `semantic.semantic_core` declaration.
+- If the emitter leaves any `$id` or `$ref` relative, then the generator SHALL rewrite it to `<base><file>` (module models) or `https://schemas.agent-ix.org/semantic-core/<version>/<file>` (semantic-core models), where `<version>` is the `@agent-ix/semantic-core` version pinned in `package.json`.
 - If a relative `$id` or `$ref` names a file this module emitted in the same run, then the generator SHALL resolve it to the module base.
 - If a relative `$id` or `$ref` names anything else, then the generator SHALL resolve it to the semantic-core base.
 - A file name emitted by both is impossible under FR-004-CON-1, which forbids redeclaring a semantic-core model, so the two preceding rules state a tie-break rather than choosing between two live candidates.
