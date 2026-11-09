@@ -39,7 +39,7 @@ reference form, and leave every 0.1.0 locator exactly as it was.
 
 ## Subtasks
 
-- [x] **`semantic` block** with exactly the nine admitted keys: `contract_version: 1.0.0`, `semantic_core: 0.1.0`, `package: agent-ix/spec-objects-enterprise`, `exports` (the seven types), `imports: {}`, `targets: [json-schema, markdown]`, `mappings: [typed-table, sysml-fence, ocl-clause]`, `compatibility_posture: additive`, `legacy_forms: warning`.
+- [x] **`semantic` block** with exactly the eight admitted keys: `contract_version: 1.0.0`, `package: agent-ix/spec-objects-enterprise`, `exports` (the seven types), `imports: {}`, `targets: [json-schema, markdown]`, `mappings: [typed-table, sysml-fence, ocl-clause]`, `compatibility_posture: additive`, `legacy_forms: warning`.
 - [x] **Reference-form `data_schema`** on all seven types: `{schema: schemas/<Model>.json, digest: sha256:<hex>}`, written by the generator.
 - [x] **Version 0.2.0** in the manifest and in the `@jsonSchema` base, in one commit.
 - [x] **Baseline diff**: every 0.1.0 locator present with identical `from`, `path`, heading, `language`, `required`, `multiple` and `assert` facets, compared against the Task-007 baseline.
